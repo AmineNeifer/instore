@@ -1,11 +1,11 @@
-## ``instore`` Service and Client 
+## ``Instore`` Service and Client 
 
-- `` instore`` is a microservice which is responsible for managing an in-memory
+- ``Instore`` is a microservice which is responsible for managing an in-memory
 key-value store. The user of that service can add, retrieve, remove... key-value pairs via that service. 
 
-- ``instore`` service and the consumer of that service are implemented in both ``Go`` language.
+- ``Instore`` service and the consumer of that service are implemented in both ``Go`` language.
 
-- This use case shows how you can implement both ``instore`` service and its consumer.
+- This use case shows how you can implement both ``Instore`` service and its consumer.
 
 ## Service Definition 
 
@@ -99,7 +99,7 @@ service StoreService {
 
 ## Implementation
 
-## Building and Running Server
+### Building and Running Server
 
 In order to build, Go to location (instore/server) and execute the following
  shell command,
@@ -114,7 +114,7 @@ shell command,
 ./bin/server
 ```
 
-## Building and Running Client
+### Building and Running Client
 
 In order to build, Go to location (instore/command) and execute the following
  shell command,
