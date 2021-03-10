@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package store;
+
+option go_package="storepb";
+
+message StoreRequest {
+    string key = 1;
+    string value = 2;
+}
+
+message StoreResponse {
+    string result = 1;
+}
+
+message RemoveRequest {
+    string key = 1;
+    string value = 2;
+}
+
+message RemoveResponse {
+    string result = 1;
+}
+
+message GetVRequest {
+    string key = 1;
+}
+
+message GetVResponse {
+    string result = 1;
+}
+
+message GetKRequest {
+    string value = 2;
+}
+
+message GetKResponse {
+    string result = 1;
+}
+
+message RemoveAllRequest {
+    string msg = 1;
+}
+
+message RemoveAllResponse {
+    string result = 1;
+}
+
+message StoreCsvRequest {
+    string key = 1;
+    string value = 2;
+}
+message StoreCsvResponse {
+    string result = 1;
+}
+
+message RemoveCsvRequest {
+    string key = 1;
+    string value = 2;
+}
+
+message RemoveCsvResponse {
+    string result = 1;
+}
+
+message GetAllRequest {
+    string msg = 1;
+}
+
+message GetAllResponse {
+    string key = 1;
+    string value = 2;
+}
+
+service StoreService {
+    // Unary
+    rpc Store(StoreRequest) returns (StoreResponse) {};
+    rpc Remove(RemoveRequest) returns (RemoveResponse) {};
+    rpc GetV(GetVRequest) returns (GetVResponse) {};
+    rpc GetK(GetKRequest) returns (GetKResponse) {};
+    rpc RemoveAll(RemoveAllRequest) returns (RemoveAllResponse) {};
+    // client streaming
+    rpc StoreCsv(stream StoreCsvRequest) returns (StoreCsvResponse) {};
+    rpc RemoveCsv(stream RemoveCsvRequest) returns (RemoveCsvResponse) {};
+    // server streaming
+    rpc GetAll(GetAllRequest) returns (stream GetAllResponse) {};
+}
