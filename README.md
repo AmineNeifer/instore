@@ -5,8 +5,6 @@ key-value store. The user of that service can add, retrieve, remove... key-value
 
 - ``Instore`` service and the consumer of that service are implemented in both ``Go`` language.
 
-- This use case shows how you can implement both ``Instore`` service and its consumer.
-
 ## Service Definition 
 
 ```proto
@@ -96,9 +94,7 @@ service StoreService {
     rpc GetAll(GetAllRequest) returns (stream GetAllResponse) {};
 }
 ```
-
-## Implementation
-
+## How to use
 ### Building and Running Server
 
 In order to build, Go to location (instore/server) and execute the following
@@ -129,7 +125,8 @@ shell command,
 ./bin/command
 ```
 
-You will be prompted to a ``CLI``, here is an example of the experience
+You will be prompted to a ``CLI``, that is able to invoke function from 
+``instore/client/client.go`` here is an example of the experience
 ```
 [cmd]  Hello! I am excited to have you as a user :D Enjoy!
 [cmd]  You could use any of these commands
