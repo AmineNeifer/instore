@@ -54,6 +54,7 @@ func main() {
 	// helps with detecting line in which we got an error <3 in case...
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 
+	// connecting to MongoDB
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
@@ -83,7 +84,7 @@ func main() {
 		fmt.Printf(bSvr+"%v\n", err)
 		os.Exit(1)
 	}
-
+	// Registers a services and its implementations to the gRPC server.
 	storepb.RegisterStoreServiceServer(s, &server{})
 	storepb.RegisterStoreDbServiceServer(s, &server{})
 
@@ -114,8 +115,20 @@ func main() {
 	fmt.Println(bSvr + "Have a good day!")
 }
 
+// UseCsv is a funcion that changes storing mode to CSV
+func (*server) UseCsv(ctx context.Context, req *storepb.UseCsvRequest) (*storepb.UseCsvResponse, error) {
+	fmt.Println(bSvr + "UseCsv function was invoked")
+	storage.StoreType = ""
+	result := bSvr + "Using CSV mode now..."
+	res := &storepb.UseCsvResponse{
+		Result: result,
+	}
+	return res, nil
+}
+
+// AddCsv is a funcion that adds key-value pair to the in-memory store
 func (*server) AddCsv(ctx context.Context, req *storepb.AddCsvRequest) (*storepb.AddCsvResponse, error) {
-	fmt.Printf(bSvr+"AddCsv function was invoked with %v\n", req)
+	fmt.Printf(bSvr + "AddCsv function was invoked with %v\n", req)
 	m := storage.LoadCsv(filePath)
 	key := req.GetKey()
 	value := req.GetValue()
@@ -130,28 +143,7 @@ func (*server) AddCsv(ctx context.Context, req *storepb.AddCsvRequest) (*storepb
 	return res, nil
 }
 
-func (*server) AddCsvFromFile(stream storepb.StoreService_AddCsvFromFileServer) error {
-	fmt.Printf(bSvr + "AddCsvFromFile function was invoked with a streaming request\n")
-	m := storage.LoadCsv(filePath)
-	for {
-		req, err := stream.Recv()
-		if err == io.EOF {
-			storage.SaveCsv(m, filePath)
-			return stream.SendAndClose(&storepb.AddCsvFromFileResponse{
-				Result: bSvr + "Csv pairs added with success",
-			})
-		}
-		if err != nil {
-			fmt.Printf(bSvr+"%v", err)
-			os.Exit(1)
-		}
-		key := req.GetKey()
-		value := req.GetValue()
-		m.Put(key, value)
-		fmt.Println(m)
-	}
-}
-
+// GetvCsv is a funcion that gets values of the key in the in-memory store
 func (*server) GetvCsv(ctx context.Context, req *storepb.GetvCsvRequest) (*storepb.GetvCsvResponse, error) {
 	fmt.Printf(bSvr+"GetvCsv function was invoked with %v\n", req)
 	m := storage.LoadCsv(filePath)
@@ -178,6 +170,7 @@ func (*server) GetvCsv(ctx context.Context, req *storepb.GetvCsvRequest) (*store
 	return res, nil
 }
 
+// GetkCsv is a funcion that gets keys from value in the in-memory store
 func (*server) GetkCsv(ctx context.Context, req *storepb.GetkCsvRequest) (*storepb.GetkCsvResponse, error) {
 	fmt.Printf(bSvr+"GetkCsv function was invoked with %v\n", req)
 	m := storage.LoadCsv(filePath)
@@ -209,6 +202,7 @@ func (*server) GetkCsv(ctx context.Context, req *storepb.GetkCsvRequest) (*store
 	return res, nil
 }
 
+// GetAllCsv is a function that get all key-value pairs in the in-memory store
 func (*server) GetAllCsv(req *storepb.GetAllCsvRequest, stream storepb.StoreService_GetAllCsvServer) error {
 	fmt.Println(bSvr + "GetAllCsv function was invoked")
 	m := storage.LoadCsv(filePath)
@@ -227,6 +221,30 @@ func (*server) GetAllCsv(req *storepb.GetAllCsvRequest, stream storepb.StoreServ
 	return nil
 }
 
+// AddCsvFromFile is a funcion that adds key-value pairs imported from a csv file to the in-memory store
+func (*server) AddCsvFromFile(stream storepb.StoreService_AddCsvFromFileServer) error {
+	fmt.Printf(bSvr + "AddCsvFromFile function was invoked with a streaming request\n")
+	m := storage.LoadCsv(filePath)
+	for {
+		req, err := stream.Recv()
+		if err == io.EOF {
+			storage.SaveCsv(m, filePath)
+			return stream.SendAndClose(&storepb.AddCsvFromFileResponse{
+				Result: bSvr + "Csv pairs added with success",
+			})
+		}
+		if err != nil {
+			fmt.Printf(bSvr+"%v", err)
+			os.Exit(1)
+		}
+		key := req.GetKey()
+		value := req.GetValue()
+		m.Put(key, value)
+		fmt.Println(m)
+	}
+}
+
+// RemoveCsv is a funcion that removes key-value pair from the in-memory store
 func (*server) RemoveCsv(ctx context.Context, req *storepb.RemoveCsvRequest) (*storepb.RemoveCsvResponse, error) {
 	fmt.Printf(bSvr+"RemoveCsv function was invoked with %v\n", req)
 	m := storage.LoadCsv(filePath)
@@ -243,6 +261,7 @@ func (*server) RemoveCsv(ctx context.Context, req *storepb.RemoveCsvRequest) (*s
 	return res, nil
 }
 
+// RemoveCsvFromFile is a funcion that removes key-value pairs imported from a csv file to the in-memory store
 func (*server) RemoveCsvFromFile(stream storepb.StoreService_RemoveCsvFromFileServer) error {
 	fmt.Printf(bSvr + "RemoveCsvFromFile function was invoked with a streaming request\n")
 	m := storage.LoadCsv(filePath)
@@ -264,6 +283,7 @@ func (*server) RemoveCsvFromFile(stream storepb.StoreService_RemoveCsvFromFileSe
 	}
 }
 
+// RemoveAllCsv is a funcion that removes all key-value pairs from the in-memory store
 func (*server) RemoveAllCsv(ctx context.Context, req *storepb.RemoveAllCsvRequest) (*storepb.RemoveAllCsvResponse, error) {
 	fmt.Println(bSvr + "RemoveAllCsv function was invoked")
 	_, err := os.Stat(filePath)
@@ -279,18 +299,12 @@ func (*server) RemoveAllCsv(ctx context.Context, req *storepb.RemoveAllCsvReques
 	}
 	return res, nil
 }
-func (*server) UseCsv(ctx context.Context, req *storepb.UseCsvRequest) (*storepb.UseCsvResponse, error) {
-	fmt.Println(bSvr + "UseCsv function was invoked")
-	storage.StoreType = ""
-	result := bSvr + "Using CSV mode now..."
-	res := &storepb.UseCsvResponse{
-		Result: result,
-	}
-	return res, nil
-}
 
-// MONGODB FUNCTIONS (StoreDBService)
+// *******************************************************************
+// 			 MONGODB MODE FUNCTIONS (StoreDBService)
+// *******************************************************************
 
+// UseDb is a funcion that adds key-value pair to the in-memory store
 func (*server) UseDb(ctx context.Context, req *storepb.UseDbRequest) (*storepb.UseDbResponse, error) {
 	fmt.Println(bSvr + "UseDb function was invoked")
 	storage.StoreType = "db"
@@ -301,6 +315,7 @@ func (*server) UseDb(ctx context.Context, req *storepb.UseDbRequest) (*storepb.U
 	return res, nil
 }
 
+// AddDb is a funcion that adds key-value pair to the in-memory store
 func (*server) AddDb(ctx context.Context, req *storepb.AddDbRequest) (*storepb.AddDbResponse, error) {
 	fmt.Printf(bSvr+"AddDb function was invoked with %v\n", req)
 
@@ -323,12 +338,13 @@ func (*server) AddDb(ctx context.Context, req *storepb.AddDbRequest) (*storepb.A
 	}, nil
 }
 
+// GetvDb is a funcion that gets values of the key in the in-memory store
 func (*server) GetvDb(ctx context.Context, req *storepb.GetvDbRequest) (*storepb.GetvDbResponse, error) {
 	fmt.Printf(bSvr+"GetvDb function was invoked with %v\n", req)
-
+	key := req.GetKey()
 	// var pair ItemBD
 	var pairs []ItemBD
-	cursor, err := collection.Find(context.Background(), bson.M{"key": req.GetKey()})
+	cursor, err := collection.Find(context.Background(), bson.M{"key": key})
 	if err != nil {
 		fmt.Println("Error finding all documents: ", err)
 		defer cursor.Close(ctx)
@@ -337,7 +353,7 @@ func (*server) GetvDb(ctx context.Context, req *storepb.GetvDbRequest) (*storepb
 			var r ItemBD
 			err := cursor.Decode(&r)
 			if err != nil {
-				fmt.Println("cursor.Next() error:", err)
+				fmt.Printf(bSvr+"%v\n", err)
 				os.Exit(1)
 			} else {
 				pairs = append(pairs, r)
@@ -348,28 +364,36 @@ func (*server) GetvDb(ctx context.Context, req *storepb.GetvDbRequest) (*storepb
 	for _, pair := range pairs {
 		values = append(values, pair.Value)
 	}
-	result := bSvr + "list of the values: [" + strings.Join(values, " ") + "]"
+
+	var result string
+	if len(values) == 0 {
+		result = bSvr + "Key '" + key + "' entered isn't found in database"
+	} else {
+		result = bSvr + "list of the values: [" + strings.Join(values, " ") + "]"
+	}
+
 	res := &storepb.GetvDbResponse{
 		Result: result,
 	}
 	return res, nil
 }
 
+// GetkDb is a funcion that gets keys of the value in the in-memory store
 func (*server) GetkDb(ctx context.Context, req *storepb.GetkDbRequest) (*storepb.GetkDbResponse, error) {
 	fmt.Printf(bSvr+"GetkDb function was invoked with %v\n", req)
-
+	value := req.GetValue()
 	// var pair ItemBD
 	var pairs []ItemBD
-	cursor, err := collection.Find(context.Background(), bson.M{"value": req.GetValue()})
+	cursor, err := collection.Find(context.Background(), bson.M{"value": value})
 	if err != nil {
-		fmt.Println("Error finding all documents: ", err)
+		fmt.Printf(bSvr+"%v\n", err)
 		defer cursor.Close(ctx)
 	} else {
 		for cursor.Next(ctx) {
 			var r ItemBD
 			err := cursor.Decode(&r)
 			if err != nil {
-				fmt.Println("cursor.Next() error:", err)
+				fmt.Printf(bSvr+"%v\n", err)
 				os.Exit(1)
 			} else {
 				pairs = append(pairs, r)
@@ -380,13 +404,20 @@ func (*server) GetkDb(ctx context.Context, req *storepb.GetkDbRequest) (*storepb
 	for _, pair := range pairs {
 		keys = append(keys, pair.Key)
 	}
-	result := bSvr + "list of the keys: [" + strings.Join(keys, " ") + "]"
+
+	var result string
+	if len(keys) == 0 {
+		result = bSvr + "Value '" + value + "' entered isn't found in database"
+	} else {
+		result = bSvr + "list of the keys: [" + strings.Join(keys, " ") + "]"
+	}
 	res := &storepb.GetkDbResponse{
 		Result: result,
 	}
 	return res, nil
 }
 
+// RemoveDb is a funcion that adds key-value pair to the in-memory store
 func (*server) RemoveDb(ctx context.Context, req *storepb.RemoveDbRequest) (*storepb.RemoveDbResponse, error) {
 	fmt.Printf(bSvr+"RemoveDb function was invoked with %v\n", req)
 	data := ItemBD{

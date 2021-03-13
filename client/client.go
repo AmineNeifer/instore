@@ -14,7 +14,7 @@ import (
 
 const bClt string = "[clt] "
 
-// UseCsv is a funcion that adds key-value pair to the in-memory store
+// UseCsv is a funcion that changes storing mode to CSV
 func UseCsv() {
 	cc, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
 
@@ -260,7 +260,7 @@ func RemoveAllCsv() {
 	// 		os.Exit(1)
 	// }
 	// cc, err := grpc.Dial("localhost:50051", grpc.WithTransportCredentials(creds))
-	
+
 	cc, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
 
 	if err != nil {
@@ -284,6 +284,30 @@ func RemoveAllCsv() {
 // *******************************************************************
 // 			 MONGODB MODE FUNCTIONS (StoreDBService)
 // *******************************************************************
+
+// UseDb is a funcion that adds key-value pair to the in-memory store
+func UseDb() {
+	cc, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
+
+	if err != nil {
+		fmt.Printf(bClt+"%v\n", err)
+		os.Exit(1)
+	}
+	defer cc.Close()
+
+	c := storepb.NewStoreDbServiceClient(cc)
+	req := &storepb.UseDbRequest{
+		Msg: "",
+	}
+	res, err := c.UseDb(context.Background(), req)
+
+	if err != nil {
+		fmt.Printf(bClt+"%v\n", err)
+		os.Exit(1)
+	}
+	fmt.Println(res.Result)
+}
+
 // AddDb is a funcion that adds key-value pair to the in-memory store
 func AddDb(key string, value string) {
 
@@ -306,29 +330,6 @@ func AddDb(key string, value string) {
 		Data: pair,
 	}
 	res, err := c.AddDb(context.Background(), req)
-
-	if err != nil {
-		fmt.Printf(bClt+"%v\n", err)
-		os.Exit(1)
-	}
-	fmt.Println(res.Result)
-}
-
-// UseDb is a funcion that adds key-value pair to the in-memory store
-func UseDb() {
-	cc, err := grpc.Dial("localhost:50051", grpc.WithInsecure())
-
-	if err != nil {
-		fmt.Printf(bClt+"%v\n", err)
-		os.Exit(1)
-	}
-	defer cc.Close()
-
-	c := storepb.NewStoreDbServiceClient(cc)
-	req := &storepb.UseDbRequest{
-		Msg: "",
-	}
-	res, err := c.UseDb(context.Background(), req)
 
 	if err != nil {
 		fmt.Printf(bClt+"%v\n", err)
