@@ -12,53 +12,12 @@ package store;
 
 option go_package="storepb";
 
-message StoreRequest {
+message AddCsvRequest {
     string key = 1;
     string value = 2;
 }
 
-message StoreResponse {
-    string result = 1;
-}
-
-message RemoveRequest {
-    string key = 1;
-    string value = 2;
-}
-
-message RemoveResponse {
-    string result = 1;
-}
-
-message GetVRequest {
-    string key = 1;
-}
-
-message GetVResponse {
-    string result = 1;
-}
-
-message GetKRequest {
-    string value = 2;
-}
-
-message GetKResponse {
-    string result = 1;
-}
-
-message RemoveAllRequest {
-    string msg = 1;
-}
-
-message RemoveAllResponse {
-    string result = 1;
-}
-
-message StoreCsvRequest {
-    string key = 1;
-    string value = 2;
-}
-message StoreCsvResponse {
+message AddCsvResponse {
     string result = 1;
 }
 
@@ -71,30 +30,131 @@ message RemoveCsvResponse {
     string result = 1;
 }
 
-message GetAllRequest {
+message GetvCsvRequest {
+    string key = 1;
+}
+
+message GetvCsvResponse {
+    string result = 1;
+}
+
+message GetkCsvRequest {
+    string value = 2;
+}
+
+message GetkCsvResponse {
+    string result = 1;
+}
+
+message RemoveAllCsvRequest {
     string msg = 1;
 }
 
-message GetAllResponse {
+message RemoveAllCsvResponse {
+    string result = 1;
+}
+
+message AddCsvFromFileRequest {
+    string key = 1;
+    string value = 2;
+}
+message AddCsvFromFileResponse {
+    string result = 1;
+}
+
+message RemoveCsvFromFileRequest {
     string key = 1;
     string value = 2;
 }
 
+message RemoveCsvFromFileResponse {
+    string result = 1;
+}
+
+message GetAllCsvRequest {
+    string msg = 1;
+}
+
+message GetAllCsvResponse {
+    string key = 1;
+    string value = 2;
+}
+
+message UseCsvRequest {
+    string msg = 1;
+}
+
+message UseCsvResponse {
+    string result = 1;
+}
+
 service StoreService {
     // Unary
-    rpc Store(StoreRequest) returns (StoreResponse) {};
-    rpc Remove(RemoveRequest) returns (RemoveResponse) {};
-    rpc GetV(GetVRequest) returns (GetVResponse) {};
-    rpc GetK(GetKRequest) returns (GetKResponse) {};
-    rpc RemoveAll(RemoveAllRequest) returns (RemoveAllResponse) {};
+    rpc AddCsv(AddCsvRequest) returns (AddCsvResponse) {};
+    rpc RemoveCsv(RemoveCsvRequest) returns (RemoveCsvResponse) {};
+    rpc GetvCsv(GetvCsvRequest) returns (GetvCsvResponse) {};
+    rpc GetkCsv(GetkCsvRequest) returns (GetkCsvResponse) {};
+    rpc RemoveAllCsv(RemoveAllCsvRequest) returns (RemoveAllCsvResponse) {};
+    rpc UseCsv(UseCsvRequest) returns (UseCsvResponse) {};
     // client streaming
-    rpc StoreCsv(stream StoreCsvRequest) returns (StoreCsvResponse) {};
-    rpc RemoveCsv(stream RemoveCsvRequest) returns (RemoveCsvResponse) {};
+    rpc AddCsvFromFile(stream AddCsvFromFileRequest) returns (AddCsvFromFileResponse) {};
+    rpc RemoveCsvFromFile(stream RemoveCsvFromFileRequest) returns (RemoveCsvFromFileResponse) {};
     // server streaming
-    rpc GetAll(GetAllRequest) returns (stream GetAllResponse) {};
+    rpc GetAllCsv(GetAllCsvRequest) returns (stream GetAllCsvResponse) {};
+}
+
+
+message Data {
+    string id = 1;
+    string key = 2;
+    string value = 3;
+}
+message AddDbRequest {
+    Data data = 1;
+}
+
+message AddDbResponse {
+    Data data = 1;
+}
+
+message UseDbRequest {
+    string msg = 1;
+}
+message UseDbResponse {
+    string result = 1;
+}
+
+message RemoveDbRequest {
+    string key = 1;
+    string value = 2;
+}
+
+message RemoveDbResponse {
+    string result = 1;
+}
+
+message GetvDbRequest {
+    string key = 1;
+}
+message GetvDbResponse {
+    Data data = 1;
+}
+
+service StoreDbService {
+    rpc AddDb(AddDbRequest) returns (AddDbResponse) {};
+    rpc GetvDb(GetvDbRequest) returns (GetvDbResponse) {};
+    rpc RemoveDb(RemoveDbRequest) returns (RemoveDbResponse) {};
+    rpc UseDb(UseDbRequest) returns (UseDbResponse) {};
 }
 ```
 ## How to use
+### Benefit of the mongoDB feature
+In order to start mongoDB and benefit from its features run the following
+command from the root directory (instore/)
+```
+mongodb --dbpath storage/db
+```
+
 ### Building and Running Server
 
 In order to build, Go to location (instore/server) and execute the following
@@ -110,13 +170,12 @@ shell command,
 ./bin/server
 ```
 
-Or you can also run it from the root directory location(instore/)
+You can also run it from the root directory location (instore/)
 ```
 go run server/server.go
 ```
 
 ### Building and Running Client
-
 In order to build, Go to location (instore/command) and execute the following
  shell command,
 ```
@@ -130,7 +189,7 @@ shell command,
 ./bin/command
 ```
 
-Or you can also run it from the root directory location(instore/)
+You can also run it from the root directory location(instore/)
 ```
 go run command/command.go
 ```
@@ -147,16 +206,16 @@ You will be prompted to a ``CLI``, that is able to invoke function from
 [cmd]  remove    <key>  <value>  ------- to remove a key-value pair from the store
 [cmd]  exit/quit                 ------- to quit the program
 [cmd]  ----------------------------------------------------------------------------------------------
-[usr]> add key value
-[srv]  Added: {'key': 'value'}
 [usr]> add tunis france
 [srv]  Added: {'tunis': 'france'}
-[usr]> add zenly job
-[srv]  Added: {'zenly': 'job'}
-[usr]> add amine neifer
-[srv]  Added: {'amine': 'neifer'}
-[usr]> remove all
-[srv]  All removed
+[usr]> add amine zenly
+[srv]  Added: {'amine': 'zenly'}
+[usr]> add holberton school
+[srv]  Added: {'holberton': 'school'}
+[usr]> use db
+[srv]  Using MongoDB now...
+[usr]> add betty holberton
+data:<id:"604bf6493d024033948a623f" key:"betty" value:"holberton" > 
 [usr]> exit
 [cmd]  Bye Bye! :)
 ```
@@ -176,6 +235,8 @@ You will be prompted to a ``CLI``, that is able to invoke function from
 
 ## Additional Information
 ### Commands
+#### ``use``
+``[usr]> use db`` enables MOngoDB mode (stores files and retreives files from mongodb) 
 #### ``add``
 ``[usr]> add Tunisia tunis`` adds ``Tunsia-tunis`` key-value pair to ``data.csv`` 
 #### ``addcsv``

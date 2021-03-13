@@ -24,7 +24,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-type StoreRequest struct {
+type AddCsvRequest struct {
 	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
 	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -32,484 +32,78 @@ type StoreRequest struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StoreRequest) Reset()         { *m = StoreRequest{} }
-func (m *StoreRequest) String() string { return proto.CompactTextString(m) }
-func (*StoreRequest) ProtoMessage()    {}
-func (*StoreRequest) Descriptor() ([]byte, []int) {
+func (m *AddCsvRequest) Reset()         { *m = AddCsvRequest{} }
+func (m *AddCsvRequest) String() string { return proto.CompactTextString(m) }
+func (*AddCsvRequest) ProtoMessage()    {}
+func (*AddCsvRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_7568ae88fa351714, []int{0}
 }
 
-func (m *StoreRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_StoreRequest.Unmarshal(m, b)
+func (m *AddCsvRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddCsvRequest.Unmarshal(m, b)
 }
-func (m *StoreRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_StoreRequest.Marshal(b, m, deterministic)
+func (m *AddCsvRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddCsvRequest.Marshal(b, m, deterministic)
 }
-func (m *StoreRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StoreRequest.Merge(m, src)
+func (m *AddCsvRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddCsvRequest.Merge(m, src)
 }
-func (m *StoreRequest) XXX_Size() int {
-	return xxx_messageInfo_StoreRequest.Size(m)
+func (m *AddCsvRequest) XXX_Size() int {
+	return xxx_messageInfo_AddCsvRequest.Size(m)
 }
-func (m *StoreRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_StoreRequest.DiscardUnknown(m)
+func (m *AddCsvRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddCsvRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_StoreRequest proto.InternalMessageInfo
+var xxx_messageInfo_AddCsvRequest proto.InternalMessageInfo
 
-func (m *StoreRequest) GetKey() string {
+func (m *AddCsvRequest) GetKey() string {
 	if m != nil {
 		return m.Key
 	}
 	return ""
 }
 
-func (m *StoreRequest) GetValue() string {
+func (m *AddCsvRequest) GetValue() string {
 	if m != nil {
 		return m.Value
 	}
 	return ""
 }
 
-type StoreResponse struct {
+type AddCsvResponse struct {
 	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *StoreResponse) Reset()         { *m = StoreResponse{} }
-func (m *StoreResponse) String() string { return proto.CompactTextString(m) }
-func (*StoreResponse) ProtoMessage()    {}
-func (*StoreResponse) Descriptor() ([]byte, []int) {
+func (m *AddCsvResponse) Reset()         { *m = AddCsvResponse{} }
+func (m *AddCsvResponse) String() string { return proto.CompactTextString(m) }
+func (*AddCsvResponse) ProtoMessage()    {}
+func (*AddCsvResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_7568ae88fa351714, []int{1}
 }
 
-func (m *StoreResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_StoreResponse.Unmarshal(m, b)
+func (m *AddCsvResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddCsvResponse.Unmarshal(m, b)
 }
-func (m *StoreResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_StoreResponse.Marshal(b, m, deterministic)
+func (m *AddCsvResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddCsvResponse.Marshal(b, m, deterministic)
 }
-func (m *StoreResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StoreResponse.Merge(m, src)
+func (m *AddCsvResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddCsvResponse.Merge(m, src)
 }
-func (m *StoreResponse) XXX_Size() int {
-	return xxx_messageInfo_StoreResponse.Size(m)
+func (m *AddCsvResponse) XXX_Size() int {
+	return xxx_messageInfo_AddCsvResponse.Size(m)
 }
-func (m *StoreResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_StoreResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_StoreResponse proto.InternalMessageInfo
-
-func (m *StoreResponse) GetResult() string {
-	if m != nil {
-		return m.Result
-	}
-	return ""
+func (m *AddCsvResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddCsvResponse.DiscardUnknown(m)
 }
 
-type RemoveRequest struct {
-	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
-	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
+var xxx_messageInfo_AddCsvResponse proto.InternalMessageInfo
 
-func (m *RemoveRequest) Reset()         { *m = RemoveRequest{} }
-func (m *RemoveRequest) String() string { return proto.CompactTextString(m) }
-func (*RemoveRequest) ProtoMessage()    {}
-func (*RemoveRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{2}
-}
-
-func (m *RemoveRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RemoveRequest.Unmarshal(m, b)
-}
-func (m *RemoveRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RemoveRequest.Marshal(b, m, deterministic)
-}
-func (m *RemoveRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RemoveRequest.Merge(m, src)
-}
-func (m *RemoveRequest) XXX_Size() int {
-	return xxx_messageInfo_RemoveRequest.Size(m)
-}
-func (m *RemoveRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_RemoveRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_RemoveRequest proto.InternalMessageInfo
-
-func (m *RemoveRequest) GetKey() string {
-	if m != nil {
-		return m.Key
-	}
-	return ""
-}
-
-func (m *RemoveRequest) GetValue() string {
-	if m != nil {
-		return m.Value
-	}
-	return ""
-}
-
-type RemoveResponse struct {
-	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *RemoveResponse) Reset()         { *m = RemoveResponse{} }
-func (m *RemoveResponse) String() string { return proto.CompactTextString(m) }
-func (*RemoveResponse) ProtoMessage()    {}
-func (*RemoveResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{3}
-}
-
-func (m *RemoveResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RemoveResponse.Unmarshal(m, b)
-}
-func (m *RemoveResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RemoveResponse.Marshal(b, m, deterministic)
-}
-func (m *RemoveResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RemoveResponse.Merge(m, src)
-}
-func (m *RemoveResponse) XXX_Size() int {
-	return xxx_messageInfo_RemoveResponse.Size(m)
-}
-func (m *RemoveResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_RemoveResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_RemoveResponse proto.InternalMessageInfo
-
-func (m *RemoveResponse) GetResult() string {
-	if m != nil {
-		return m.Result
-	}
-	return ""
-}
-
-type GetVRequest struct {
-	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetVRequest) Reset()         { *m = GetVRequest{} }
-func (m *GetVRequest) String() string { return proto.CompactTextString(m) }
-func (*GetVRequest) ProtoMessage()    {}
-func (*GetVRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{4}
-}
-
-func (m *GetVRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetVRequest.Unmarshal(m, b)
-}
-func (m *GetVRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetVRequest.Marshal(b, m, deterministic)
-}
-func (m *GetVRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetVRequest.Merge(m, src)
-}
-func (m *GetVRequest) XXX_Size() int {
-	return xxx_messageInfo_GetVRequest.Size(m)
-}
-func (m *GetVRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetVRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetVRequest proto.InternalMessageInfo
-
-func (m *GetVRequest) GetKey() string {
-	if m != nil {
-		return m.Key
-	}
-	return ""
-}
-
-type GetVResponse struct {
-	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetVResponse) Reset()         { *m = GetVResponse{} }
-func (m *GetVResponse) String() string { return proto.CompactTextString(m) }
-func (*GetVResponse) ProtoMessage()    {}
-func (*GetVResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{5}
-}
-
-func (m *GetVResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetVResponse.Unmarshal(m, b)
-}
-func (m *GetVResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetVResponse.Marshal(b, m, deterministic)
-}
-func (m *GetVResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetVResponse.Merge(m, src)
-}
-func (m *GetVResponse) XXX_Size() int {
-	return xxx_messageInfo_GetVResponse.Size(m)
-}
-func (m *GetVResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetVResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetVResponse proto.InternalMessageInfo
-
-func (m *GetVResponse) GetResult() string {
-	if m != nil {
-		return m.Result
-	}
-	return ""
-}
-
-type GetKRequest struct {
-	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetKRequest) Reset()         { *m = GetKRequest{} }
-func (m *GetKRequest) String() string { return proto.CompactTextString(m) }
-func (*GetKRequest) ProtoMessage()    {}
-func (*GetKRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{6}
-}
-
-func (m *GetKRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetKRequest.Unmarshal(m, b)
-}
-func (m *GetKRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetKRequest.Marshal(b, m, deterministic)
-}
-func (m *GetKRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetKRequest.Merge(m, src)
-}
-func (m *GetKRequest) XXX_Size() int {
-	return xxx_messageInfo_GetKRequest.Size(m)
-}
-func (m *GetKRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetKRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetKRequest proto.InternalMessageInfo
-
-func (m *GetKRequest) GetValue() string {
-	if m != nil {
-		return m.Value
-	}
-	return ""
-}
-
-type GetKResponse struct {
-	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetKResponse) Reset()         { *m = GetKResponse{} }
-func (m *GetKResponse) String() string { return proto.CompactTextString(m) }
-func (*GetKResponse) ProtoMessage()    {}
-func (*GetKResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{7}
-}
-
-func (m *GetKResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetKResponse.Unmarshal(m, b)
-}
-func (m *GetKResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetKResponse.Marshal(b, m, deterministic)
-}
-func (m *GetKResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetKResponse.Merge(m, src)
-}
-func (m *GetKResponse) XXX_Size() int {
-	return xxx_messageInfo_GetKResponse.Size(m)
-}
-func (m *GetKResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetKResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetKResponse proto.InternalMessageInfo
-
-func (m *GetKResponse) GetResult() string {
-	if m != nil {
-		return m.Result
-	}
-	return ""
-}
-
-type RemoveAllRequest struct {
-	Msg                  string   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *RemoveAllRequest) Reset()         { *m = RemoveAllRequest{} }
-func (m *RemoveAllRequest) String() string { return proto.CompactTextString(m) }
-func (*RemoveAllRequest) ProtoMessage()    {}
-func (*RemoveAllRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{8}
-}
-
-func (m *RemoveAllRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RemoveAllRequest.Unmarshal(m, b)
-}
-func (m *RemoveAllRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RemoveAllRequest.Marshal(b, m, deterministic)
-}
-func (m *RemoveAllRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RemoveAllRequest.Merge(m, src)
-}
-func (m *RemoveAllRequest) XXX_Size() int {
-	return xxx_messageInfo_RemoveAllRequest.Size(m)
-}
-func (m *RemoveAllRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_RemoveAllRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_RemoveAllRequest proto.InternalMessageInfo
-
-func (m *RemoveAllRequest) GetMsg() string {
-	if m != nil {
-		return m.Msg
-	}
-	return ""
-}
-
-type RemoveAllResponse struct {
-	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *RemoveAllResponse) Reset()         { *m = RemoveAllResponse{} }
-func (m *RemoveAllResponse) String() string { return proto.CompactTextString(m) }
-func (*RemoveAllResponse) ProtoMessage()    {}
-func (*RemoveAllResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{9}
-}
-
-func (m *RemoveAllResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_RemoveAllResponse.Unmarshal(m, b)
-}
-func (m *RemoveAllResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_RemoveAllResponse.Marshal(b, m, deterministic)
-}
-func (m *RemoveAllResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RemoveAllResponse.Merge(m, src)
-}
-func (m *RemoveAllResponse) XXX_Size() int {
-	return xxx_messageInfo_RemoveAllResponse.Size(m)
-}
-func (m *RemoveAllResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_RemoveAllResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_RemoveAllResponse proto.InternalMessageInfo
-
-func (m *RemoveAllResponse) GetResult() string {
-	if m != nil {
-		return m.Result
-	}
-	return ""
-}
-
-type StoreCsvRequest struct {
-	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
-	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *StoreCsvRequest) Reset()         { *m = StoreCsvRequest{} }
-func (m *StoreCsvRequest) String() string { return proto.CompactTextString(m) }
-func (*StoreCsvRequest) ProtoMessage()    {}
-func (*StoreCsvRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{10}
-}
-
-func (m *StoreCsvRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_StoreCsvRequest.Unmarshal(m, b)
-}
-func (m *StoreCsvRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_StoreCsvRequest.Marshal(b, m, deterministic)
-}
-func (m *StoreCsvRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StoreCsvRequest.Merge(m, src)
-}
-func (m *StoreCsvRequest) XXX_Size() int {
-	return xxx_messageInfo_StoreCsvRequest.Size(m)
-}
-func (m *StoreCsvRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_StoreCsvRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_StoreCsvRequest proto.InternalMessageInfo
-
-func (m *StoreCsvRequest) GetKey() string {
-	if m != nil {
-		return m.Key
-	}
-	return ""
-}
-
-func (m *StoreCsvRequest) GetValue() string {
-	if m != nil {
-		return m.Value
-	}
-	return ""
-}
-
-type StoreCsvResponse struct {
-	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *StoreCsvResponse) Reset()         { *m = StoreCsvResponse{} }
-func (m *StoreCsvResponse) String() string { return proto.CompactTextString(m) }
-func (*StoreCsvResponse) ProtoMessage()    {}
-func (*StoreCsvResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{11}
-}
-
-func (m *StoreCsvResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_StoreCsvResponse.Unmarshal(m, b)
-}
-func (m *StoreCsvResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_StoreCsvResponse.Marshal(b, m, deterministic)
-}
-func (m *StoreCsvResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StoreCsvResponse.Merge(m, src)
-}
-func (m *StoreCsvResponse) XXX_Size() int {
-	return xxx_messageInfo_StoreCsvResponse.Size(m)
-}
-func (m *StoreCsvResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_StoreCsvResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_StoreCsvResponse proto.InternalMessageInfo
-
-func (m *StoreCsvResponse) GetResult() string {
+func (m *AddCsvResponse) GetResult() string {
 	if m != nil {
 		return m.Result
 	}
@@ -528,7 +122,7 @@ func (m *RemoveCsvRequest) Reset()         { *m = RemoveCsvRequest{} }
 func (m *RemoveCsvRequest) String() string { return proto.CompactTextString(m) }
 func (*RemoveCsvRequest) ProtoMessage()    {}
 func (*RemoveCsvRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{12}
+	return fileDescriptor_7568ae88fa351714, []int{2}
 }
 
 func (m *RemoveCsvRequest) XXX_Unmarshal(b []byte) error {
@@ -574,7 +168,7 @@ func (m *RemoveCsvResponse) Reset()         { *m = RemoveCsvResponse{} }
 func (m *RemoveCsvResponse) String() string { return proto.CompactTextString(m) }
 func (*RemoveCsvResponse) ProtoMessage()    {}
 func (*RemoveCsvResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{13}
+	return fileDescriptor_7568ae88fa351714, []int{3}
 }
 
 func (m *RemoveCsvResponse) XXX_Unmarshal(b []byte) error {
@@ -602,46 +196,241 @@ func (m *RemoveCsvResponse) GetResult() string {
 	return ""
 }
 
-type GetAllRequest struct {
+type GetvCsvRequest struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetvCsvRequest) Reset()         { *m = GetvCsvRequest{} }
+func (m *GetvCsvRequest) String() string { return proto.CompactTextString(m) }
+func (*GetvCsvRequest) ProtoMessage()    {}
+func (*GetvCsvRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{4}
+}
+
+func (m *GetvCsvRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetvCsvRequest.Unmarshal(m, b)
+}
+func (m *GetvCsvRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetvCsvRequest.Marshal(b, m, deterministic)
+}
+func (m *GetvCsvRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetvCsvRequest.Merge(m, src)
+}
+func (m *GetvCsvRequest) XXX_Size() int {
+	return xxx_messageInfo_GetvCsvRequest.Size(m)
+}
+func (m *GetvCsvRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetvCsvRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetvCsvRequest proto.InternalMessageInfo
+
+func (m *GetvCsvRequest) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+type GetvCsvResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetvCsvResponse) Reset()         { *m = GetvCsvResponse{} }
+func (m *GetvCsvResponse) String() string { return proto.CompactTextString(m) }
+func (*GetvCsvResponse) ProtoMessage()    {}
+func (*GetvCsvResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{5}
+}
+
+func (m *GetvCsvResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetvCsvResponse.Unmarshal(m, b)
+}
+func (m *GetvCsvResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetvCsvResponse.Marshal(b, m, deterministic)
+}
+func (m *GetvCsvResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetvCsvResponse.Merge(m, src)
+}
+func (m *GetvCsvResponse) XXX_Size() int {
+	return xxx_messageInfo_GetvCsvResponse.Size(m)
+}
+func (m *GetvCsvResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetvCsvResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetvCsvResponse proto.InternalMessageInfo
+
+func (m *GetvCsvResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type GetkCsvRequest struct {
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetkCsvRequest) Reset()         { *m = GetkCsvRequest{} }
+func (m *GetkCsvRequest) String() string { return proto.CompactTextString(m) }
+func (*GetkCsvRequest) ProtoMessage()    {}
+func (*GetkCsvRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{6}
+}
+
+func (m *GetkCsvRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetkCsvRequest.Unmarshal(m, b)
+}
+func (m *GetkCsvRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetkCsvRequest.Marshal(b, m, deterministic)
+}
+func (m *GetkCsvRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetkCsvRequest.Merge(m, src)
+}
+func (m *GetkCsvRequest) XXX_Size() int {
+	return xxx_messageInfo_GetkCsvRequest.Size(m)
+}
+func (m *GetkCsvRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetkCsvRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetkCsvRequest proto.InternalMessageInfo
+
+func (m *GetkCsvRequest) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type GetkCsvResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetkCsvResponse) Reset()         { *m = GetkCsvResponse{} }
+func (m *GetkCsvResponse) String() string { return proto.CompactTextString(m) }
+func (*GetkCsvResponse) ProtoMessage()    {}
+func (*GetkCsvResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{7}
+}
+
+func (m *GetkCsvResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetkCsvResponse.Unmarshal(m, b)
+}
+func (m *GetkCsvResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetkCsvResponse.Marshal(b, m, deterministic)
+}
+func (m *GetkCsvResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetkCsvResponse.Merge(m, src)
+}
+func (m *GetkCsvResponse) XXX_Size() int {
+	return xxx_messageInfo_GetkCsvResponse.Size(m)
+}
+func (m *GetkCsvResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetkCsvResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetkCsvResponse proto.InternalMessageInfo
+
+func (m *GetkCsvResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type RemoveAllCsvRequest struct {
 	Msg                  string   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetAllRequest) Reset()         { *m = GetAllRequest{} }
-func (m *GetAllRequest) String() string { return proto.CompactTextString(m) }
-func (*GetAllRequest) ProtoMessage()    {}
-func (*GetAllRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{14}
+func (m *RemoveAllCsvRequest) Reset()         { *m = RemoveAllCsvRequest{} }
+func (m *RemoveAllCsvRequest) String() string { return proto.CompactTextString(m) }
+func (*RemoveAllCsvRequest) ProtoMessage()    {}
+func (*RemoveAllCsvRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{8}
 }
 
-func (m *GetAllRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetAllRequest.Unmarshal(m, b)
+func (m *RemoveAllCsvRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveAllCsvRequest.Unmarshal(m, b)
 }
-func (m *GetAllRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetAllRequest.Marshal(b, m, deterministic)
+func (m *RemoveAllCsvRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveAllCsvRequest.Marshal(b, m, deterministic)
 }
-func (m *GetAllRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetAllRequest.Merge(m, src)
+func (m *RemoveAllCsvRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveAllCsvRequest.Merge(m, src)
 }
-func (m *GetAllRequest) XXX_Size() int {
-	return xxx_messageInfo_GetAllRequest.Size(m)
+func (m *RemoveAllCsvRequest) XXX_Size() int {
+	return xxx_messageInfo_RemoveAllCsvRequest.Size(m)
 }
-func (m *GetAllRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetAllRequest.DiscardUnknown(m)
+func (m *RemoveAllCsvRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveAllCsvRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetAllRequest proto.InternalMessageInfo
+var xxx_messageInfo_RemoveAllCsvRequest proto.InternalMessageInfo
 
-func (m *GetAllRequest) GetMsg() string {
+func (m *RemoveAllCsvRequest) GetMsg() string {
 	if m != nil {
 		return m.Msg
 	}
 	return ""
 }
 
-type GetAllResponse struct {
+type RemoveAllCsvResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RemoveAllCsvResponse) Reset()         { *m = RemoveAllCsvResponse{} }
+func (m *RemoveAllCsvResponse) String() string { return proto.CompactTextString(m) }
+func (*RemoveAllCsvResponse) ProtoMessage()    {}
+func (*RemoveAllCsvResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{9}
+}
+
+func (m *RemoveAllCsvResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveAllCsvResponse.Unmarshal(m, b)
+}
+func (m *RemoveAllCsvResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveAllCsvResponse.Marshal(b, m, deterministic)
+}
+func (m *RemoveAllCsvResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveAllCsvResponse.Merge(m, src)
+}
+func (m *RemoveAllCsvResponse) XXX_Size() int {
+	return xxx_messageInfo_RemoveAllCsvResponse.Size(m)
+}
+func (m *RemoveAllCsvResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveAllCsvResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveAllCsvResponse proto.InternalMessageInfo
+
+func (m *RemoveAllCsvResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type AddCsvFromFileRequest struct {
 	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
 	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -649,93 +438,855 @@ type GetAllResponse struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *GetAllResponse) Reset()         { *m = GetAllResponse{} }
-func (m *GetAllResponse) String() string { return proto.CompactTextString(m) }
-func (*GetAllResponse) ProtoMessage()    {}
-func (*GetAllResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_7568ae88fa351714, []int{15}
+func (m *AddCsvFromFileRequest) Reset()         { *m = AddCsvFromFileRequest{} }
+func (m *AddCsvFromFileRequest) String() string { return proto.CompactTextString(m) }
+func (*AddCsvFromFileRequest) ProtoMessage()    {}
+func (*AddCsvFromFileRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{10}
 }
 
-func (m *GetAllResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetAllResponse.Unmarshal(m, b)
+func (m *AddCsvFromFileRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddCsvFromFileRequest.Unmarshal(m, b)
 }
-func (m *GetAllResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetAllResponse.Marshal(b, m, deterministic)
+func (m *AddCsvFromFileRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddCsvFromFileRequest.Marshal(b, m, deterministic)
 }
-func (m *GetAllResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetAllResponse.Merge(m, src)
+func (m *AddCsvFromFileRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddCsvFromFileRequest.Merge(m, src)
 }
-func (m *GetAllResponse) XXX_Size() int {
-	return xxx_messageInfo_GetAllResponse.Size(m)
+func (m *AddCsvFromFileRequest) XXX_Size() int {
+	return xxx_messageInfo_AddCsvFromFileRequest.Size(m)
 }
-func (m *GetAllResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetAllResponse.DiscardUnknown(m)
+func (m *AddCsvFromFileRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddCsvFromFileRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_GetAllResponse proto.InternalMessageInfo
+var xxx_messageInfo_AddCsvFromFileRequest proto.InternalMessageInfo
 
-func (m *GetAllResponse) GetKey() string {
+func (m *AddCsvFromFileRequest) GetKey() string {
 	if m != nil {
 		return m.Key
 	}
 	return ""
 }
 
-func (m *GetAllResponse) GetValue() string {
+func (m *AddCsvFromFileRequest) GetValue() string {
 	if m != nil {
 		return m.Value
 	}
 	return ""
 }
 
+type AddCsvFromFileResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *AddCsvFromFileResponse) Reset()         { *m = AddCsvFromFileResponse{} }
+func (m *AddCsvFromFileResponse) String() string { return proto.CompactTextString(m) }
+func (*AddCsvFromFileResponse) ProtoMessage()    {}
+func (*AddCsvFromFileResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{11}
+}
+
+func (m *AddCsvFromFileResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddCsvFromFileResponse.Unmarshal(m, b)
+}
+func (m *AddCsvFromFileResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddCsvFromFileResponse.Marshal(b, m, deterministic)
+}
+func (m *AddCsvFromFileResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddCsvFromFileResponse.Merge(m, src)
+}
+func (m *AddCsvFromFileResponse) XXX_Size() int {
+	return xxx_messageInfo_AddCsvFromFileResponse.Size(m)
+}
+func (m *AddCsvFromFileResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddCsvFromFileResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddCsvFromFileResponse proto.InternalMessageInfo
+
+func (m *AddCsvFromFileResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type RemoveCsvFromFileRequest struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RemoveCsvFromFileRequest) Reset()         { *m = RemoveCsvFromFileRequest{} }
+func (m *RemoveCsvFromFileRequest) String() string { return proto.CompactTextString(m) }
+func (*RemoveCsvFromFileRequest) ProtoMessage()    {}
+func (*RemoveCsvFromFileRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{12}
+}
+
+func (m *RemoveCsvFromFileRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveCsvFromFileRequest.Unmarshal(m, b)
+}
+func (m *RemoveCsvFromFileRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveCsvFromFileRequest.Marshal(b, m, deterministic)
+}
+func (m *RemoveCsvFromFileRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveCsvFromFileRequest.Merge(m, src)
+}
+func (m *RemoveCsvFromFileRequest) XXX_Size() int {
+	return xxx_messageInfo_RemoveCsvFromFileRequest.Size(m)
+}
+func (m *RemoveCsvFromFileRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveCsvFromFileRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveCsvFromFileRequest proto.InternalMessageInfo
+
+func (m *RemoveCsvFromFileRequest) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *RemoveCsvFromFileRequest) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type RemoveCsvFromFileResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RemoveCsvFromFileResponse) Reset()         { *m = RemoveCsvFromFileResponse{} }
+func (m *RemoveCsvFromFileResponse) String() string { return proto.CompactTextString(m) }
+func (*RemoveCsvFromFileResponse) ProtoMessage()    {}
+func (*RemoveCsvFromFileResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{13}
+}
+
+func (m *RemoveCsvFromFileResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveCsvFromFileResponse.Unmarshal(m, b)
+}
+func (m *RemoveCsvFromFileResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveCsvFromFileResponse.Marshal(b, m, deterministic)
+}
+func (m *RemoveCsvFromFileResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveCsvFromFileResponse.Merge(m, src)
+}
+func (m *RemoveCsvFromFileResponse) XXX_Size() int {
+	return xxx_messageInfo_RemoveCsvFromFileResponse.Size(m)
+}
+func (m *RemoveCsvFromFileResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveCsvFromFileResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveCsvFromFileResponse proto.InternalMessageInfo
+
+func (m *RemoveCsvFromFileResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type GetAllCsvRequest struct {
+	Msg                  string   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetAllCsvRequest) Reset()         { *m = GetAllCsvRequest{} }
+func (m *GetAllCsvRequest) String() string { return proto.CompactTextString(m) }
+func (*GetAllCsvRequest) ProtoMessage()    {}
+func (*GetAllCsvRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{14}
+}
+
+func (m *GetAllCsvRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAllCsvRequest.Unmarshal(m, b)
+}
+func (m *GetAllCsvRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAllCsvRequest.Marshal(b, m, deterministic)
+}
+func (m *GetAllCsvRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAllCsvRequest.Merge(m, src)
+}
+func (m *GetAllCsvRequest) XXX_Size() int {
+	return xxx_messageInfo_GetAllCsvRequest.Size(m)
+}
+func (m *GetAllCsvRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAllCsvRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAllCsvRequest proto.InternalMessageInfo
+
+func (m *GetAllCsvRequest) GetMsg() string {
+	if m != nil {
+		return m.Msg
+	}
+	return ""
+}
+
+type GetAllCsvResponse struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetAllCsvResponse) Reset()         { *m = GetAllCsvResponse{} }
+func (m *GetAllCsvResponse) String() string { return proto.CompactTextString(m) }
+func (*GetAllCsvResponse) ProtoMessage()    {}
+func (*GetAllCsvResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{15}
+}
+
+func (m *GetAllCsvResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetAllCsvResponse.Unmarshal(m, b)
+}
+func (m *GetAllCsvResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetAllCsvResponse.Marshal(b, m, deterministic)
+}
+func (m *GetAllCsvResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetAllCsvResponse.Merge(m, src)
+}
+func (m *GetAllCsvResponse) XXX_Size() int {
+	return xxx_messageInfo_GetAllCsvResponse.Size(m)
+}
+func (m *GetAllCsvResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetAllCsvResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetAllCsvResponse proto.InternalMessageInfo
+
+func (m *GetAllCsvResponse) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *GetAllCsvResponse) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type UseCsvRequest struct {
+	Msg                  string   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UseCsvRequest) Reset()         { *m = UseCsvRequest{} }
+func (m *UseCsvRequest) String() string { return proto.CompactTextString(m) }
+func (*UseCsvRequest) ProtoMessage()    {}
+func (*UseCsvRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{16}
+}
+
+func (m *UseCsvRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UseCsvRequest.Unmarshal(m, b)
+}
+func (m *UseCsvRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UseCsvRequest.Marshal(b, m, deterministic)
+}
+func (m *UseCsvRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UseCsvRequest.Merge(m, src)
+}
+func (m *UseCsvRequest) XXX_Size() int {
+	return xxx_messageInfo_UseCsvRequest.Size(m)
+}
+func (m *UseCsvRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UseCsvRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UseCsvRequest proto.InternalMessageInfo
+
+func (m *UseCsvRequest) GetMsg() string {
+	if m != nil {
+		return m.Msg
+	}
+	return ""
+}
+
+type UseCsvResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UseCsvResponse) Reset()         { *m = UseCsvResponse{} }
+func (m *UseCsvResponse) String() string { return proto.CompactTextString(m) }
+func (*UseCsvResponse) ProtoMessage()    {}
+func (*UseCsvResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{17}
+}
+
+func (m *UseCsvResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UseCsvResponse.Unmarshal(m, b)
+}
+func (m *UseCsvResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UseCsvResponse.Marshal(b, m, deterministic)
+}
+func (m *UseCsvResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UseCsvResponse.Merge(m, src)
+}
+func (m *UseCsvResponse) XXX_Size() int {
+	return xxx_messageInfo_UseCsvResponse.Size(m)
+}
+func (m *UseCsvResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UseCsvResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UseCsvResponse proto.InternalMessageInfo
+
+func (m *UseCsvResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type Data struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Data) Reset()         { *m = Data{} }
+func (m *Data) String() string { return proto.CompactTextString(m) }
+func (*Data) ProtoMessage()    {}
+func (*Data) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{18}
+}
+
+func (m *Data) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Data.Unmarshal(m, b)
+}
+func (m *Data) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Data.Marshal(b, m, deterministic)
+}
+func (m *Data) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Data.Merge(m, src)
+}
+func (m *Data) XXX_Size() int {
+	return xxx_messageInfo_Data.Size(m)
+}
+func (m *Data) XXX_DiscardUnknown() {
+	xxx_messageInfo_Data.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Data proto.InternalMessageInfo
+
+func (m *Data) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *Data) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type AddDbRequest struct {
+	Data                 *Data    `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *AddDbRequest) Reset()         { *m = AddDbRequest{} }
+func (m *AddDbRequest) String() string { return proto.CompactTextString(m) }
+func (*AddDbRequest) ProtoMessage()    {}
+func (*AddDbRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{19}
+}
+
+func (m *AddDbRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddDbRequest.Unmarshal(m, b)
+}
+func (m *AddDbRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddDbRequest.Marshal(b, m, deterministic)
+}
+func (m *AddDbRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddDbRequest.Merge(m, src)
+}
+func (m *AddDbRequest) XXX_Size() int {
+	return xxx_messageInfo_AddDbRequest.Size(m)
+}
+func (m *AddDbRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddDbRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddDbRequest proto.InternalMessageInfo
+
+func (m *AddDbRequest) GetData() *Data {
+	if m != nil {
+		return m.Data
+	}
+	return nil
+}
+
+type AddDbResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *AddDbResponse) Reset()         { *m = AddDbResponse{} }
+func (m *AddDbResponse) String() string { return proto.CompactTextString(m) }
+func (*AddDbResponse) ProtoMessage()    {}
+func (*AddDbResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{20}
+}
+
+func (m *AddDbResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_AddDbResponse.Unmarshal(m, b)
+}
+func (m *AddDbResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_AddDbResponse.Marshal(b, m, deterministic)
+}
+func (m *AddDbResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddDbResponse.Merge(m, src)
+}
+func (m *AddDbResponse) XXX_Size() int {
+	return xxx_messageInfo_AddDbResponse.Size(m)
+}
+func (m *AddDbResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddDbResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_AddDbResponse proto.InternalMessageInfo
+
+func (m *AddDbResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type UseDbRequest struct {
+	Msg                  string   `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UseDbRequest) Reset()         { *m = UseDbRequest{} }
+func (m *UseDbRequest) String() string { return proto.CompactTextString(m) }
+func (*UseDbRequest) ProtoMessage()    {}
+func (*UseDbRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{21}
+}
+
+func (m *UseDbRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UseDbRequest.Unmarshal(m, b)
+}
+func (m *UseDbRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UseDbRequest.Marshal(b, m, deterministic)
+}
+func (m *UseDbRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UseDbRequest.Merge(m, src)
+}
+func (m *UseDbRequest) XXX_Size() int {
+	return xxx_messageInfo_UseDbRequest.Size(m)
+}
+func (m *UseDbRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_UseDbRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UseDbRequest proto.InternalMessageInfo
+
+func (m *UseDbRequest) GetMsg() string {
+	if m != nil {
+		return m.Msg
+	}
+	return ""
+}
+
+type UseDbResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *UseDbResponse) Reset()         { *m = UseDbResponse{} }
+func (m *UseDbResponse) String() string { return proto.CompactTextString(m) }
+func (*UseDbResponse) ProtoMessage()    {}
+func (*UseDbResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{22}
+}
+
+func (m *UseDbResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_UseDbResponse.Unmarshal(m, b)
+}
+func (m *UseDbResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_UseDbResponse.Marshal(b, m, deterministic)
+}
+func (m *UseDbResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UseDbResponse.Merge(m, src)
+}
+func (m *UseDbResponse) XXX_Size() int {
+	return xxx_messageInfo_UseDbResponse.Size(m)
+}
+func (m *UseDbResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_UseDbResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_UseDbResponse proto.InternalMessageInfo
+
+func (m *UseDbResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type RemoveDbRequest struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RemoveDbRequest) Reset()         { *m = RemoveDbRequest{} }
+func (m *RemoveDbRequest) String() string { return proto.CompactTextString(m) }
+func (*RemoveDbRequest) ProtoMessage()    {}
+func (*RemoveDbRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{23}
+}
+
+func (m *RemoveDbRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveDbRequest.Unmarshal(m, b)
+}
+func (m *RemoveDbRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveDbRequest.Marshal(b, m, deterministic)
+}
+func (m *RemoveDbRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveDbRequest.Merge(m, src)
+}
+func (m *RemoveDbRequest) XXX_Size() int {
+	return xxx_messageInfo_RemoveDbRequest.Size(m)
+}
+func (m *RemoveDbRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveDbRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveDbRequest proto.InternalMessageInfo
+
+func (m *RemoveDbRequest) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *RemoveDbRequest) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type RemoveDbResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *RemoveDbResponse) Reset()         { *m = RemoveDbResponse{} }
+func (m *RemoveDbResponse) String() string { return proto.CompactTextString(m) }
+func (*RemoveDbResponse) ProtoMessage()    {}
+func (*RemoveDbResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{24}
+}
+
+func (m *RemoveDbResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_RemoveDbResponse.Unmarshal(m, b)
+}
+func (m *RemoveDbResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_RemoveDbResponse.Marshal(b, m, deterministic)
+}
+func (m *RemoveDbResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveDbResponse.Merge(m, src)
+}
+func (m *RemoveDbResponse) XXX_Size() int {
+	return xxx_messageInfo_RemoveDbResponse.Size(m)
+}
+func (m *RemoveDbResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_RemoveDbResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RemoveDbResponse proto.InternalMessageInfo
+
+func (m *RemoveDbResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type GetvDbRequest struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetvDbRequest) Reset()         { *m = GetvDbRequest{} }
+func (m *GetvDbRequest) String() string { return proto.CompactTextString(m) }
+func (*GetvDbRequest) ProtoMessage()    {}
+func (*GetvDbRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{25}
+}
+
+func (m *GetvDbRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetvDbRequest.Unmarshal(m, b)
+}
+func (m *GetvDbRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetvDbRequest.Marshal(b, m, deterministic)
+}
+func (m *GetvDbRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetvDbRequest.Merge(m, src)
+}
+func (m *GetvDbRequest) XXX_Size() int {
+	return xxx_messageInfo_GetvDbRequest.Size(m)
+}
+func (m *GetvDbRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetvDbRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetvDbRequest proto.InternalMessageInfo
+
+func (m *GetvDbRequest) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+type GetvDbResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetvDbResponse) Reset()         { *m = GetvDbResponse{} }
+func (m *GetvDbResponse) String() string { return proto.CompactTextString(m) }
+func (*GetvDbResponse) ProtoMessage()    {}
+func (*GetvDbResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{26}
+}
+
+func (m *GetvDbResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetvDbResponse.Unmarshal(m, b)
+}
+func (m *GetvDbResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetvDbResponse.Marshal(b, m, deterministic)
+}
+func (m *GetvDbResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetvDbResponse.Merge(m, src)
+}
+func (m *GetvDbResponse) XXX_Size() int {
+	return xxx_messageInfo_GetvDbResponse.Size(m)
+}
+func (m *GetvDbResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetvDbResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetvDbResponse proto.InternalMessageInfo
+
+func (m *GetvDbResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
+type GetkDbRequest struct {
+	Value                string   `protobuf:"bytes,1,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetkDbRequest) Reset()         { *m = GetkDbRequest{} }
+func (m *GetkDbRequest) String() string { return proto.CompactTextString(m) }
+func (*GetkDbRequest) ProtoMessage()    {}
+func (*GetkDbRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{27}
+}
+
+func (m *GetkDbRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetkDbRequest.Unmarshal(m, b)
+}
+func (m *GetkDbRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetkDbRequest.Marshal(b, m, deterministic)
+}
+func (m *GetkDbRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetkDbRequest.Merge(m, src)
+}
+func (m *GetkDbRequest) XXX_Size() int {
+	return xxx_messageInfo_GetkDbRequest.Size(m)
+}
+func (m *GetkDbRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetkDbRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetkDbRequest proto.InternalMessageInfo
+
+func (m *GetkDbRequest) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type GetkDbResponse struct {
+	Result               string   `protobuf:"bytes,1,opt,name=result,proto3" json:"result,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetkDbResponse) Reset()         { *m = GetkDbResponse{} }
+func (m *GetkDbResponse) String() string { return proto.CompactTextString(m) }
+func (*GetkDbResponse) ProtoMessage()    {}
+func (*GetkDbResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_7568ae88fa351714, []int{28}
+}
+
+func (m *GetkDbResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetkDbResponse.Unmarshal(m, b)
+}
+func (m *GetkDbResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetkDbResponse.Marshal(b, m, deterministic)
+}
+func (m *GetkDbResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetkDbResponse.Merge(m, src)
+}
+func (m *GetkDbResponse) XXX_Size() int {
+	return xxx_messageInfo_GetkDbResponse.Size(m)
+}
+func (m *GetkDbResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetkDbResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetkDbResponse proto.InternalMessageInfo
+
+func (m *GetkDbResponse) GetResult() string {
+	if m != nil {
+		return m.Result
+	}
+	return ""
+}
+
 func init() {
-	proto.RegisterType((*StoreRequest)(nil), "store.StoreRequest")
-	proto.RegisterType((*StoreResponse)(nil), "store.StoreResponse")
-	proto.RegisterType((*RemoveRequest)(nil), "store.RemoveRequest")
-	proto.RegisterType((*RemoveResponse)(nil), "store.RemoveResponse")
-	proto.RegisterType((*GetVRequest)(nil), "store.GetVRequest")
-	proto.RegisterType((*GetVResponse)(nil), "store.GetVResponse")
-	proto.RegisterType((*GetKRequest)(nil), "store.GetKRequest")
-	proto.RegisterType((*GetKResponse)(nil), "store.GetKResponse")
-	proto.RegisterType((*RemoveAllRequest)(nil), "store.RemoveAllRequest")
-	proto.RegisterType((*RemoveAllResponse)(nil), "store.RemoveAllResponse")
-	proto.RegisterType((*StoreCsvRequest)(nil), "store.StoreCsvRequest")
-	proto.RegisterType((*StoreCsvResponse)(nil), "store.StoreCsvResponse")
+	proto.RegisterType((*AddCsvRequest)(nil), "store.AddCsvRequest")
+	proto.RegisterType((*AddCsvResponse)(nil), "store.AddCsvResponse")
 	proto.RegisterType((*RemoveCsvRequest)(nil), "store.RemoveCsvRequest")
 	proto.RegisterType((*RemoveCsvResponse)(nil), "store.RemoveCsvResponse")
-	proto.RegisterType((*GetAllRequest)(nil), "store.GetAllRequest")
-	proto.RegisterType((*GetAllResponse)(nil), "store.GetAllResponse")
+	proto.RegisterType((*GetvCsvRequest)(nil), "store.GetvCsvRequest")
+	proto.RegisterType((*GetvCsvResponse)(nil), "store.GetvCsvResponse")
+	proto.RegisterType((*GetkCsvRequest)(nil), "store.GetkCsvRequest")
+	proto.RegisterType((*GetkCsvResponse)(nil), "store.GetkCsvResponse")
+	proto.RegisterType((*RemoveAllCsvRequest)(nil), "store.RemoveAllCsvRequest")
+	proto.RegisterType((*RemoveAllCsvResponse)(nil), "store.RemoveAllCsvResponse")
+	proto.RegisterType((*AddCsvFromFileRequest)(nil), "store.AddCsvFromFileRequest")
+	proto.RegisterType((*AddCsvFromFileResponse)(nil), "store.AddCsvFromFileResponse")
+	proto.RegisterType((*RemoveCsvFromFileRequest)(nil), "store.RemoveCsvFromFileRequest")
+	proto.RegisterType((*RemoveCsvFromFileResponse)(nil), "store.RemoveCsvFromFileResponse")
+	proto.RegisterType((*GetAllCsvRequest)(nil), "store.GetAllCsvRequest")
+	proto.RegisterType((*GetAllCsvResponse)(nil), "store.GetAllCsvResponse")
+	proto.RegisterType((*UseCsvRequest)(nil), "store.UseCsvRequest")
+	proto.RegisterType((*UseCsvResponse)(nil), "store.UseCsvResponse")
+	proto.RegisterType((*Data)(nil), "store.Data")
+	proto.RegisterType((*AddDbRequest)(nil), "store.AddDbRequest")
+	proto.RegisterType((*AddDbResponse)(nil), "store.AddDbResponse")
+	proto.RegisterType((*UseDbRequest)(nil), "store.UseDbRequest")
+	proto.RegisterType((*UseDbResponse)(nil), "store.UseDbResponse")
+	proto.RegisterType((*RemoveDbRequest)(nil), "store.RemoveDbRequest")
+	proto.RegisterType((*RemoveDbResponse)(nil), "store.RemoveDbResponse")
+	proto.RegisterType((*GetvDbRequest)(nil), "store.GetvDbRequest")
+	proto.RegisterType((*GetvDbResponse)(nil), "store.GetvDbResponse")
+	proto.RegisterType((*GetkDbRequest)(nil), "store.GetkDbRequest")
+	proto.RegisterType((*GetkDbResponse)(nil), "store.GetkDbResponse")
 }
 
 func init() { proto.RegisterFile("storepb/store.proto", fileDescriptor_7568ae88fa351714) }
 
 var fileDescriptor_7568ae88fa351714 = []byte{
-	// 396 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x54, 0x4d, 0x4f, 0xc2, 0x40,
-	0x10, 0xa5, 0x22, 0x55, 0x46, 0x40, 0x5c, 0x10, 0x9a, 0x5e, 0xd4, 0xd5, 0x28, 0xd1, 0x04, 0x3f,
-	0x23, 0xe2, 0x45, 0xc5, 0x03, 0x87, 0xde, 0x20, 0xf1, 0xe0, 0x4d, 0xcc, 0x86, 0x18, 0x8b, 0xc5,
-	0x6e, 0x69, 0xe2, 0x0f, 0xf6, 0x7f, 0x98, 0xee, 0x47, 0xd9, 0xa5, 0x68, 0xc1, 0x53, 0x77, 0x66,
-	0xe7, 0xbd, 0x79, 0x3b, 0xfb, 0xba, 0x50, 0xa1, 0x81, 0xe7, 0x93, 0xf1, 0xe0, 0x94, 0x7d, 0x9b,
-	0x63, 0xdf, 0x0b, 0x3c, 0x94, 0x63, 0x01, 0xbe, 0x86, 0x42, 0x3f, 0x5a, 0xf4, 0xc8, 0xe7, 0x84,
-	0xd0, 0x00, 0x95, 0x21, 0xfb, 0x4e, 0xbe, 0x2c, 0x63, 0xd7, 0x68, 0xe4, 0x7b, 0xd1, 0x12, 0x55,
-	0x21, 0x17, 0xbe, 0xb8, 0x13, 0x62, 0xad, 0xb0, 0x1c, 0x0f, 0xf0, 0x11, 0x14, 0x05, 0x8e, 0x8e,
-	0xbd, 0x0f, 0x4a, 0x50, 0x0d, 0x4c, 0x9f, 0xd0, 0x89, 0x1b, 0x08, 0xac, 0x88, 0x70, 0x0b, 0x8a,
-	0x3d, 0x32, 0xf2, 0xc2, 0xa5, 0x3b, 0x34, 0xa0, 0x24, 0x81, 0x29, 0x2d, 0x76, 0x60, 0xa3, 0x4b,
-	0x82, 0xa7, 0x5f, 0x1b, 0xe0, 0x43, 0x28, 0xf0, 0x82, 0x14, 0xa2, 0x7d, 0x46, 0xe4, 0x48, 0xa2,
-	0xf9, 0xba, 0x38, 0x99, 0x93, 0x4a, 0x76, 0x00, 0x65, 0xae, 0xff, 0xc1, 0x75, 0x15, 0x69, 0x23,
-	0x3a, 0x94, 0xd2, 0x46, 0x74, 0x88, 0x4f, 0x60, 0x4b, 0xa9, 0x4a, 0xa1, 0x6c, 0xc3, 0x26, 0x1b,
-	0xfa, 0x23, 0x0d, 0x97, 0x9d, 0xe6, 0x31, 0x94, 0xa7, 0xd0, 0x94, 0x36, 0xb7, 0x52, 0xf9, 0x3f,
-	0xfa, 0xc4, 0xe7, 0x59, 0xa4, 0xd1, 0x1e, 0x14, 0xbb, 0x24, 0xf8, 0x73, 0x3e, 0x37, 0x50, 0x92,
-	0x25, 0x82, 0x6c, 0x41, 0x25, 0x17, 0xdf, 0x59, 0x61, 0xed, 0x3e, 0xf1, 0xc3, 0xb7, 0x57, 0x82,
-	0xae, 0x20, 0xc7, 0x62, 0x54, 0x69, 0xf2, 0x1f, 0x41, 0x35, 0xbe, 0x5d, 0xd5, 0x93, 0xbc, 0x19,
-	0xce, 0xa0, 0x16, 0x98, 0xfc, 0x40, 0x48, 0x56, 0x68, 0x76, 0xb6, 0xb7, 0x67, 0xb2, 0x31, 0xf0,
-	0x1c, 0x56, 0x23, 0xd3, 0x21, 0x24, 0x0a, 0x14, 0x8b, 0xda, 0x15, 0x2d, 0x37, 0x03, 0x71, 0x54,
-	0x88, 0x33, 0x07, 0xe2, 0x28, 0x90, 0x7b, 0xc8, 0xc7, 0xfe, 0x41, 0x75, 0x4d, 0xcb, 0x74, 0xae,
-	0xb6, 0x95, 0xdc, 0x88, 0x19, 0xee, 0x60, 0x5d, 0x3a, 0x03, 0xd5, 0xd4, 0x21, 0x4c, 0x6f, 0xdf,
-	0xae, 0x27, 0xf2, 0x12, 0xde, 0x30, 0x50, 0x47, 0x4a, 0x88, 0x18, 0x74, 0x09, 0x0a, 0x85, 0x95,
-	0xdc, 0x50, 0x38, 0xda, 0x60, 0xf2, 0x6b, 0x8e, 0xa7, 0xac, 0x19, 0x23, 0x9e, 0xb2, 0xee, 0x05,
-	0x9c, 0x39, 0x33, 0x3a, 0xf9, 0xe7, 0x35, 0xf1, 0xbe, 0x0d, 0x4c, 0xf6, 0xb4, 0x5d, 0xfe, 0x04,
-	0x00, 0x00, 0xff, 0xff, 0x46, 0x7c, 0x82, 0xea, 0xf1, 0x04, 0x00, 0x00,
+	// 625 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x56, 0x5d, 0x6f, 0x12, 0x41,
+	0x14, 0x85, 0x0a, 0x54, 0x6e, 0x81, 0xd2, 0xe1, 0xa3, 0xb8, 0x6a, 0x4a, 0x27, 0x2a, 0xa8, 0x09,
+	0x6d, 0x68, 0x13, 0x62, 0x8d, 0x51, 0x90, 0xb4, 0xf1, 0x51, 0x9a, 0xbe, 0xf4, 0x0d, 0x64, 0xd2,
+	0x34, 0xb3, 0xb8, 0xb8, 0xb3, 0x6c, 0xe2, 0x8f, 0xf2, 0xff, 0xf9, 0x68, 0x76, 0x66, 0x67, 0xd8,
+	0x19, 0xb6, 0xec, 0xda, 0x27, 0xd8, 0x3b, 0xf7, 0x9c, 0xfb, 0x35, 0xf7, 0xec, 0x42, 0x8d, 0x79,
+	0x8e, 0x4b, 0x96, 0xb3, 0x13, 0xfe, 0xdb, 0x5b, 0xba, 0x8e, 0xe7, 0xa0, 0x3c, 0x7f, 0xc0, 0x03,
+	0x28, 0x0f, 0xe7, 0xf3, 0xaf, 0xcc, 0x9f, 0x90, 0x5f, 0x2b, 0xc2, 0x3c, 0x54, 0x85, 0x27, 0x94,
+	0xfc, 0x6e, 0x65, 0xdb, 0xd9, 0x6e, 0x71, 0x12, 0xfc, 0x45, 0x75, 0xc8, 0xfb, 0x53, 0x7b, 0x45,
+	0x5a, 0x3b, 0xdc, 0x26, 0x1e, 0x70, 0x17, 0x2a, 0x12, 0xc8, 0x96, 0xce, 0x4f, 0x46, 0x50, 0x13,
+	0x0a, 0x2e, 0x61, 0x2b, 0xdb, 0x0b, 0xc1, 0xe1, 0x13, 0xbe, 0x80, 0xea, 0x84, 0x2c, 0x1c, 0x9f,
+	0x3c, 0x22, 0xca, 0x7b, 0x38, 0x88, 0x60, 0x13, 0x02, 0x61, 0xa8, 0x5c, 0x11, 0xcf, 0xdf, 0x16,
+	0x06, 0xbf, 0x85, 0x7d, 0xe5, 0x93, 0x40, 0xf7, 0x86, 0xd3, 0xd1, 0x08, 0x5d, 0x7c, 0x8e, 0x82,
+	0x92, 0xa6, 0xa1, 0xec, 0x40, 0x4d, 0x94, 0x33, 0xb4, 0x6d, 0x3d, 0xcd, 0x05, 0xbb, 0x93, 0x69,
+	0x2e, 0xd8, 0x1d, 0xee, 0x41, 0x5d, 0x77, 0x4c, 0x20, 0xfe, 0x0c, 0x0d, 0x31, 0x8d, 0x4b, 0xd7,
+	0x59, 0x5c, 0xde, 0xdb, 0xe4, 0x7f, 0x1b, 0x7d, 0x0a, 0x4d, 0x93, 0x20, 0x21, 0xe4, 0x08, 0x5a,
+	0x6a, 0x34, 0x8f, 0x8d, 0x7a, 0x06, 0xcf, 0x62, 0x38, 0x12, 0x02, 0xbf, 0x82, 0xea, 0x15, 0xf1,
+	0x92, 0x3a, 0xf8, 0x11, 0x0e, 0x22, 0x5e, 0x21, 0x65, 0xda, 0xbc, 0x8e, 0xa1, 0x7c, 0xc3, 0xc8,
+	0x56, 0xfe, 0x2e, 0x54, 0xa4, 0x4b, 0x42, 0xbe, 0x3d, 0xc8, 0x8d, 0xa7, 0xde, 0x34, 0x75, 0xf0,
+	0x13, 0x28, 0x0d, 0xe7, 0xf3, 0xf1, 0x4c, 0xc6, 0x3e, 0x82, 0xdc, 0x7c, 0xea, 0x4d, 0x39, 0x70,
+	0xaf, 0xbf, 0xd7, 0x13, 0x5b, 0x1c, 0x50, 0x4e, 0xf8, 0x01, 0xee, 0xf0, 0x1d, 0x0e, 0x00, 0x09,
+	0x99, 0xb4, 0xa1, 0x74, 0xc3, 0xc8, 0x9a, 0x79, 0xb3, 0xaa, 0x0e, 0x2f, 0x3c, 0x05, 0xd5, 0x07,
+	0xd8, 0x17, 0x93, 0xd3, 0xd8, 0x52, 0xd5, 0xf7, 0x4e, 0xea, 0x41, 0x8a, 0x30, 0xc7, 0x50, 0x0e,
+	0xd6, 0x75, 0x4b, 0x90, 0x60, 0x10, 0xd2, 0x25, 0x81, 0xec, 0x35, 0x27, 0xa3, 0x6b, 0x32, 0x95,
+	0x5f, 0xd6, 0x50, 0x36, 0xe9, 0xb6, 0x9d, 0xb0, 0xff, 0x37, 0x07, 0xa5, 0xeb, 0x60, 0x1a, 0xd7,
+	0xc4, 0xf5, 0xef, 0x7f, 0x10, 0x34, 0x80, 0x82, 0xd8, 0x22, 0x54, 0x0f, 0xc7, 0xa4, 0x89, 0xab,
+	0xd5, 0x30, 0xac, 0x82, 0x1f, 0x67, 0xd0, 0x17, 0x28, 0xaa, 0x45, 0x40, 0x87, 0xa1, 0x97, 0xa9,
+	0x9a, 0x56, 0x6b, 0xf3, 0x40, 0x31, 0x5c, 0xc0, 0x6e, 0x28, 0x6c, 0x48, 0x46, 0xd1, 0xc5, 0xd0,
+	0x6a, 0x9a, 0x66, 0x03, 0x4b, 0x0d, 0x2c, 0x8d, 0xc7, 0x52, 0x1d, 0xfb, 0x0d, 0x4a, 0x51, 0xa5,
+	0x42, 0x96, 0x96, 0xa3, 0xb6, 0xa5, 0xd6, 0xf3, 0xd8, 0x33, 0x45, 0x35, 0x80, 0x82, 0x58, 0x29,
+	0xd5, 0x3d, 0x6d, 0x09, 0x55, 0xf7, 0xf4, 0xbd, 0xc3, 0x19, 0xf4, 0x5d, 0xbe, 0x8b, 0xa4, 0x86,
+	0xa0, 0x17, 0x5a, 0xa3, 0x0d, 0x79, 0xb2, 0x5e, 0x3e, 0x70, 0x2a, 0x09, 0xbb, 0x59, 0x74, 0x1b,
+	0x79, 0xf1, 0x28, 0xd6, 0x23, 0xb3, 0xff, 0x26, 0x71, 0xfb, 0x61, 0x87, 0x08, 0xf7, 0x08, 0x8a,
+	0x4a, 0x9a, 0xd4, 0xb0, 0x4d, 0x49, 0x53, 0xc3, 0xde, 0x50, 0x31, 0x9c, 0x39, 0xcd, 0xf6, 0xff,
+	0xec, 0x40, 0x85, 0x5f, 0xbd, 0xf1, 0x4c, 0x5e, 0xbe, 0x73, 0xc8, 0x73, 0x19, 0x40, 0xb5, 0x75,
+	0x79, 0xea, 0xae, 0x5b, 0x75, 0xdd, 0x18, 0x6d, 0xba, 0x58, 0x1f, 0xd5, 0x74, 0x6d, 0xe1, 0xac,
+	0x86, 0x61, 0x35, 0x80, 0x54, 0x07, 0xd2, 0x58, 0x20, 0xd5, 0x80, 0x9f, 0xe0, 0xa9, 0xdc, 0x7f,
+	0xd4, 0xd4, 0x1a, 0xb6, 0x06, 0x1f, 0x6e, 0xd8, 0x15, 0xfc, 0x1c, 0xf2, 0x5c, 0xa2, 0x54, 0x99,
+	0x51, 0x49, 0xb3, 0xea, 0xba, 0x51, 0xa2, 0x46, 0xc5, 0xdb, 0xdd, 0xf0, 0x2b, 0x68, 0x56, 0xe0,
+	0x1f, 0x40, 0x67, 0xff, 0x02, 0x00, 0x00, 0xff, 0xff, 0x0b, 0x84, 0x7b, 0xb0, 0x17, 0x09, 0x00,
+	0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -751,16 +1302,17 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type StoreServiceClient interface {
 	// Unary
-	Store(ctx context.Context, in *StoreRequest, opts ...grpc.CallOption) (*StoreResponse, error)
-	Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error)
-	GetV(ctx context.Context, in *GetVRequest, opts ...grpc.CallOption) (*GetVResponse, error)
-	GetK(ctx context.Context, in *GetKRequest, opts ...grpc.CallOption) (*GetKResponse, error)
-	RemoveAll(ctx context.Context, in *RemoveAllRequest, opts ...grpc.CallOption) (*RemoveAllResponse, error)
+	AddCsv(ctx context.Context, in *AddCsvRequest, opts ...grpc.CallOption) (*AddCsvResponse, error)
+	RemoveCsv(ctx context.Context, in *RemoveCsvRequest, opts ...grpc.CallOption) (*RemoveCsvResponse, error)
+	GetvCsv(ctx context.Context, in *GetvCsvRequest, opts ...grpc.CallOption) (*GetvCsvResponse, error)
+	GetkCsv(ctx context.Context, in *GetkCsvRequest, opts ...grpc.CallOption) (*GetkCsvResponse, error)
+	RemoveAllCsv(ctx context.Context, in *RemoveAllCsvRequest, opts ...grpc.CallOption) (*RemoveAllCsvResponse, error)
+	UseCsv(ctx context.Context, in *UseCsvRequest, opts ...grpc.CallOption) (*UseCsvResponse, error)
 	// client streaming
-	StoreCsv(ctx context.Context, opts ...grpc.CallOption) (StoreService_StoreCsvClient, error)
-	RemoveCsv(ctx context.Context, opts ...grpc.CallOption) (StoreService_RemoveCsvClient, error)
+	AddCsvFromFile(ctx context.Context, opts ...grpc.CallOption) (StoreService_AddCsvFromFileClient, error)
+	RemoveCsvFromFile(ctx context.Context, opts ...grpc.CallOption) (StoreService_RemoveCsvFromFileClient, error)
 	// server streaming
-	GetAll(ctx context.Context, in *GetAllRequest, opts ...grpc.CallOption) (StoreService_GetAllClient, error)
+	GetAllCsv(ctx context.Context, in *GetAllCsvRequest, opts ...grpc.CallOption) (StoreService_GetAllCsvClient, error)
 }
 
 type storeServiceClient struct {
@@ -771,125 +1323,134 @@ func NewStoreServiceClient(cc *grpc.ClientConn) StoreServiceClient {
 	return &storeServiceClient{cc}
 }
 
-func (c *storeServiceClient) Store(ctx context.Context, in *StoreRequest, opts ...grpc.CallOption) (*StoreResponse, error) {
-	out := new(StoreResponse)
-	err := c.cc.Invoke(ctx, "/store.StoreService/Store", in, out, opts...)
+func (c *storeServiceClient) AddCsv(ctx context.Context, in *AddCsvRequest, opts ...grpc.CallOption) (*AddCsvResponse, error) {
+	out := new(AddCsvResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreService/AddCsv", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) Remove(ctx context.Context, in *RemoveRequest, opts ...grpc.CallOption) (*RemoveResponse, error) {
-	out := new(RemoveResponse)
-	err := c.cc.Invoke(ctx, "/store.StoreService/Remove", in, out, opts...)
+func (c *storeServiceClient) RemoveCsv(ctx context.Context, in *RemoveCsvRequest, opts ...grpc.CallOption) (*RemoveCsvResponse, error) {
+	out := new(RemoveCsvResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreService/RemoveCsv", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) GetV(ctx context.Context, in *GetVRequest, opts ...grpc.CallOption) (*GetVResponse, error) {
-	out := new(GetVResponse)
-	err := c.cc.Invoke(ctx, "/store.StoreService/GetV", in, out, opts...)
+func (c *storeServiceClient) GetvCsv(ctx context.Context, in *GetvCsvRequest, opts ...grpc.CallOption) (*GetvCsvResponse, error) {
+	out := new(GetvCsvResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreService/GetvCsv", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) GetK(ctx context.Context, in *GetKRequest, opts ...grpc.CallOption) (*GetKResponse, error) {
-	out := new(GetKResponse)
-	err := c.cc.Invoke(ctx, "/store.StoreService/GetK", in, out, opts...)
+func (c *storeServiceClient) GetkCsv(ctx context.Context, in *GetkCsvRequest, opts ...grpc.CallOption) (*GetkCsvResponse, error) {
+	out := new(GetkCsvResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreService/GetkCsv", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) RemoveAll(ctx context.Context, in *RemoveAllRequest, opts ...grpc.CallOption) (*RemoveAllResponse, error) {
-	out := new(RemoveAllResponse)
-	err := c.cc.Invoke(ctx, "/store.StoreService/RemoveAll", in, out, opts...)
+func (c *storeServiceClient) RemoveAllCsv(ctx context.Context, in *RemoveAllCsvRequest, opts ...grpc.CallOption) (*RemoveAllCsvResponse, error) {
+	out := new(RemoveAllCsvResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreService/RemoveAllCsv", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *storeServiceClient) StoreCsv(ctx context.Context, opts ...grpc.CallOption) (StoreService_StoreCsvClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_StoreService_serviceDesc.Streams[0], "/store.StoreService/StoreCsv", opts...)
+func (c *storeServiceClient) UseCsv(ctx context.Context, in *UseCsvRequest, opts ...grpc.CallOption) (*UseCsvResponse, error) {
+	out := new(UseCsvResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreService/UseCsv", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &storeServiceStoreCsvClient{stream}
+	return out, nil
+}
+
+func (c *storeServiceClient) AddCsvFromFile(ctx context.Context, opts ...grpc.CallOption) (StoreService_AddCsvFromFileClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_StoreService_serviceDesc.Streams[0], "/store.StoreService/AddCsvFromFile", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &storeServiceAddCsvFromFileClient{stream}
 	return x, nil
 }
 
-type StoreService_StoreCsvClient interface {
-	Send(*StoreCsvRequest) error
-	CloseAndRecv() (*StoreCsvResponse, error)
+type StoreService_AddCsvFromFileClient interface {
+	Send(*AddCsvFromFileRequest) error
+	CloseAndRecv() (*AddCsvFromFileResponse, error)
 	grpc.ClientStream
 }
 
-type storeServiceStoreCsvClient struct {
+type storeServiceAddCsvFromFileClient struct {
 	grpc.ClientStream
 }
 
-func (x *storeServiceStoreCsvClient) Send(m *StoreCsvRequest) error {
+func (x *storeServiceAddCsvFromFileClient) Send(m *AddCsvFromFileRequest) error {
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *storeServiceStoreCsvClient) CloseAndRecv() (*StoreCsvResponse, error) {
+func (x *storeServiceAddCsvFromFileClient) CloseAndRecv() (*AddCsvFromFileResponse, error) {
 	if err := x.ClientStream.CloseSend(); err != nil {
 		return nil, err
 	}
-	m := new(StoreCsvResponse)
+	m := new(AddCsvFromFileResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-func (c *storeServiceClient) RemoveCsv(ctx context.Context, opts ...grpc.CallOption) (StoreService_RemoveCsvClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_StoreService_serviceDesc.Streams[1], "/store.StoreService/RemoveCsv", opts...)
+func (c *storeServiceClient) RemoveCsvFromFile(ctx context.Context, opts ...grpc.CallOption) (StoreService_RemoveCsvFromFileClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_StoreService_serviceDesc.Streams[1], "/store.StoreService/RemoveCsvFromFile", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &storeServiceRemoveCsvClient{stream}
+	x := &storeServiceRemoveCsvFromFileClient{stream}
 	return x, nil
 }
 
-type StoreService_RemoveCsvClient interface {
-	Send(*RemoveCsvRequest) error
-	CloseAndRecv() (*RemoveCsvResponse, error)
+type StoreService_RemoveCsvFromFileClient interface {
+	Send(*RemoveCsvFromFileRequest) error
+	CloseAndRecv() (*RemoveCsvFromFileResponse, error)
 	grpc.ClientStream
 }
 
-type storeServiceRemoveCsvClient struct {
+type storeServiceRemoveCsvFromFileClient struct {
 	grpc.ClientStream
 }
 
-func (x *storeServiceRemoveCsvClient) Send(m *RemoveCsvRequest) error {
+func (x *storeServiceRemoveCsvFromFileClient) Send(m *RemoveCsvFromFileRequest) error {
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *storeServiceRemoveCsvClient) CloseAndRecv() (*RemoveCsvResponse, error) {
+func (x *storeServiceRemoveCsvFromFileClient) CloseAndRecv() (*RemoveCsvFromFileResponse, error) {
 	if err := x.ClientStream.CloseSend(); err != nil {
 		return nil, err
 	}
-	m := new(RemoveCsvResponse)
+	m := new(RemoveCsvFromFileResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-func (c *storeServiceClient) GetAll(ctx context.Context, in *GetAllRequest, opts ...grpc.CallOption) (StoreService_GetAllClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_StoreService_serviceDesc.Streams[2], "/store.StoreService/GetAll", opts...)
+func (c *storeServiceClient) GetAllCsv(ctx context.Context, in *GetAllCsvRequest, opts ...grpc.CallOption) (StoreService_GetAllCsvClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_StoreService_serviceDesc.Streams[2], "/store.StoreService/GetAllCsv", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &storeServiceGetAllClient{stream}
+	x := &storeServiceGetAllCsvClient{stream}
 	if err := x.ClientStream.SendMsg(in); err != nil {
 		return nil, err
 	}
@@ -899,17 +1460,17 @@ func (c *storeServiceClient) GetAll(ctx context.Context, in *GetAllRequest, opts
 	return x, nil
 }
 
-type StoreService_GetAllClient interface {
-	Recv() (*GetAllResponse, error)
+type StoreService_GetAllCsvClient interface {
+	Recv() (*GetAllCsvResponse, error)
 	grpc.ClientStream
 }
 
-type storeServiceGetAllClient struct {
+type storeServiceGetAllCsvClient struct {
 	grpc.ClientStream
 }
 
-func (x *storeServiceGetAllClient) Recv() (*GetAllResponse, error) {
-	m := new(GetAllResponse)
+func (x *storeServiceGetAllCsvClient) Recv() (*GetAllCsvResponse, error) {
+	m := new(GetAllCsvResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -919,211 +1480,233 @@ func (x *storeServiceGetAllClient) Recv() (*GetAllResponse, error) {
 // StoreServiceServer is the server API for StoreService service.
 type StoreServiceServer interface {
 	// Unary
-	Store(context.Context, *StoreRequest) (*StoreResponse, error)
-	Remove(context.Context, *RemoveRequest) (*RemoveResponse, error)
-	GetV(context.Context, *GetVRequest) (*GetVResponse, error)
-	GetK(context.Context, *GetKRequest) (*GetKResponse, error)
-	RemoveAll(context.Context, *RemoveAllRequest) (*RemoveAllResponse, error)
+	AddCsv(context.Context, *AddCsvRequest) (*AddCsvResponse, error)
+	RemoveCsv(context.Context, *RemoveCsvRequest) (*RemoveCsvResponse, error)
+	GetvCsv(context.Context, *GetvCsvRequest) (*GetvCsvResponse, error)
+	GetkCsv(context.Context, *GetkCsvRequest) (*GetkCsvResponse, error)
+	RemoveAllCsv(context.Context, *RemoveAllCsvRequest) (*RemoveAllCsvResponse, error)
+	UseCsv(context.Context, *UseCsvRequest) (*UseCsvResponse, error)
 	// client streaming
-	StoreCsv(StoreService_StoreCsvServer) error
-	RemoveCsv(StoreService_RemoveCsvServer) error
+	AddCsvFromFile(StoreService_AddCsvFromFileServer) error
+	RemoveCsvFromFile(StoreService_RemoveCsvFromFileServer) error
 	// server streaming
-	GetAll(*GetAllRequest, StoreService_GetAllServer) error
+	GetAllCsv(*GetAllCsvRequest, StoreService_GetAllCsvServer) error
 }
 
 // UnimplementedStoreServiceServer can be embedded to have forward compatible implementations.
 type UnimplementedStoreServiceServer struct {
 }
 
-func (*UnimplementedStoreServiceServer) Store(ctx context.Context, req *StoreRequest) (*StoreResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Store not implemented")
+func (*UnimplementedStoreServiceServer) AddCsv(ctx context.Context, req *AddCsvRequest) (*AddCsvResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddCsv not implemented")
 }
-func (*UnimplementedStoreServiceServer) Remove(ctx context.Context, req *RemoveRequest) (*RemoveResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Remove not implemented")
+func (*UnimplementedStoreServiceServer) RemoveCsv(ctx context.Context, req *RemoveCsvRequest) (*RemoveCsvResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveCsv not implemented")
 }
-func (*UnimplementedStoreServiceServer) GetV(ctx context.Context, req *GetVRequest) (*GetVResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetV not implemented")
+func (*UnimplementedStoreServiceServer) GetvCsv(ctx context.Context, req *GetvCsvRequest) (*GetvCsvResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetvCsv not implemented")
 }
-func (*UnimplementedStoreServiceServer) GetK(ctx context.Context, req *GetKRequest) (*GetKResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetK not implemented")
+func (*UnimplementedStoreServiceServer) GetkCsv(ctx context.Context, req *GetkCsvRequest) (*GetkCsvResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetkCsv not implemented")
 }
-func (*UnimplementedStoreServiceServer) RemoveAll(ctx context.Context, req *RemoveAllRequest) (*RemoveAllResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RemoveAll not implemented")
+func (*UnimplementedStoreServiceServer) RemoveAllCsv(ctx context.Context, req *RemoveAllCsvRequest) (*RemoveAllCsvResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveAllCsv not implemented")
 }
-func (*UnimplementedStoreServiceServer) StoreCsv(srv StoreService_StoreCsvServer) error {
-	return status.Errorf(codes.Unimplemented, "method StoreCsv not implemented")
+func (*UnimplementedStoreServiceServer) UseCsv(ctx context.Context, req *UseCsvRequest) (*UseCsvResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UseCsv not implemented")
 }
-func (*UnimplementedStoreServiceServer) RemoveCsv(srv StoreService_RemoveCsvServer) error {
-	return status.Errorf(codes.Unimplemented, "method RemoveCsv not implemented")
+func (*UnimplementedStoreServiceServer) AddCsvFromFile(srv StoreService_AddCsvFromFileServer) error {
+	return status.Errorf(codes.Unimplemented, "method AddCsvFromFile not implemented")
 }
-func (*UnimplementedStoreServiceServer) GetAll(req *GetAllRequest, srv StoreService_GetAllServer) error {
-	return status.Errorf(codes.Unimplemented, "method GetAll not implemented")
+func (*UnimplementedStoreServiceServer) RemoveCsvFromFile(srv StoreService_RemoveCsvFromFileServer) error {
+	return status.Errorf(codes.Unimplemented, "method RemoveCsvFromFile not implemented")
+}
+func (*UnimplementedStoreServiceServer) GetAllCsv(req *GetAllCsvRequest, srv StoreService_GetAllCsvServer) error {
+	return status.Errorf(codes.Unimplemented, "method GetAllCsv not implemented")
 }
 
 func RegisterStoreServiceServer(s *grpc.Server, srv StoreServiceServer) {
 	s.RegisterService(&_StoreService_serviceDesc, srv)
 }
 
-func _StoreService_Store_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StoreRequest)
+func _StoreService_AddCsv_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddCsvRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).Store(ctx, in)
+		return srv.(StoreServiceServer).AddCsv(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/store.StoreService/Store",
+		FullMethod: "/store.StoreService/AddCsv",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).Store(ctx, req.(*StoreRequest))
+		return srv.(StoreServiceServer).AddCsv(ctx, req.(*AddCsvRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_Remove_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveRequest)
+func _StoreService_RemoveCsv_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveCsvRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).Remove(ctx, in)
+		return srv.(StoreServiceServer).RemoveCsv(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/store.StoreService/Remove",
+		FullMethod: "/store.StoreService/RemoveCsv",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).Remove(ctx, req.(*RemoveRequest))
+		return srv.(StoreServiceServer).RemoveCsv(ctx, req.(*RemoveCsvRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_GetV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetVRequest)
+func _StoreService_GetvCsv_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetvCsvRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).GetV(ctx, in)
+		return srv.(StoreServiceServer).GetvCsv(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/store.StoreService/GetV",
+		FullMethod: "/store.StoreService/GetvCsv",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).GetV(ctx, req.(*GetVRequest))
+		return srv.(StoreServiceServer).GetvCsv(ctx, req.(*GetvCsvRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_GetK_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetKRequest)
+func _StoreService_GetkCsv_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetkCsvRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).GetK(ctx, in)
+		return srv.(StoreServiceServer).GetkCsv(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/store.StoreService/GetK",
+		FullMethod: "/store.StoreService/GetkCsv",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).GetK(ctx, req.(*GetKRequest))
+		return srv.(StoreServiceServer).GetkCsv(ctx, req.(*GetkCsvRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_RemoveAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RemoveAllRequest)
+func _StoreService_RemoveAllCsv_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveAllCsvRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(StoreServiceServer).RemoveAll(ctx, in)
+		return srv.(StoreServiceServer).RemoveAllCsv(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/store.StoreService/RemoveAll",
+		FullMethod: "/store.StoreService/RemoveAllCsv",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StoreServiceServer).RemoveAll(ctx, req.(*RemoveAllRequest))
+		return srv.(StoreServiceServer).RemoveAllCsv(ctx, req.(*RemoveAllCsvRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StoreService_StoreCsv_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(StoreServiceServer).StoreCsv(&storeServiceStoreCsvServer{stream})
+func _StoreService_UseCsv_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UseCsvRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreServiceServer).UseCsv(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/store.StoreService/UseCsv",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreServiceServer).UseCsv(ctx, req.(*UseCsvRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
-type StoreService_StoreCsvServer interface {
-	SendAndClose(*StoreCsvResponse) error
-	Recv() (*StoreCsvRequest, error)
+func _StoreService_AddCsvFromFile_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(StoreServiceServer).AddCsvFromFile(&storeServiceAddCsvFromFileServer{stream})
+}
+
+type StoreService_AddCsvFromFileServer interface {
+	SendAndClose(*AddCsvFromFileResponse) error
+	Recv() (*AddCsvFromFileRequest, error)
 	grpc.ServerStream
 }
 
-type storeServiceStoreCsvServer struct {
+type storeServiceAddCsvFromFileServer struct {
 	grpc.ServerStream
 }
 
-func (x *storeServiceStoreCsvServer) SendAndClose(m *StoreCsvResponse) error {
+func (x *storeServiceAddCsvFromFileServer) SendAndClose(m *AddCsvFromFileResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *storeServiceStoreCsvServer) Recv() (*StoreCsvRequest, error) {
-	m := new(StoreCsvRequest)
+func (x *storeServiceAddCsvFromFileServer) Recv() (*AddCsvFromFileRequest, error) {
+	m := new(AddCsvFromFileRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-func _StoreService_RemoveCsv_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(StoreServiceServer).RemoveCsv(&storeServiceRemoveCsvServer{stream})
+func _StoreService_RemoveCsvFromFile_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(StoreServiceServer).RemoveCsvFromFile(&storeServiceRemoveCsvFromFileServer{stream})
 }
 
-type StoreService_RemoveCsvServer interface {
-	SendAndClose(*RemoveCsvResponse) error
-	Recv() (*RemoveCsvRequest, error)
+type StoreService_RemoveCsvFromFileServer interface {
+	SendAndClose(*RemoveCsvFromFileResponse) error
+	Recv() (*RemoveCsvFromFileRequest, error)
 	grpc.ServerStream
 }
 
-type storeServiceRemoveCsvServer struct {
+type storeServiceRemoveCsvFromFileServer struct {
 	grpc.ServerStream
 }
 
-func (x *storeServiceRemoveCsvServer) SendAndClose(m *RemoveCsvResponse) error {
+func (x *storeServiceRemoveCsvFromFileServer) SendAndClose(m *RemoveCsvFromFileResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *storeServiceRemoveCsvServer) Recv() (*RemoveCsvRequest, error) {
-	m := new(RemoveCsvRequest)
+func (x *storeServiceRemoveCsvFromFileServer) Recv() (*RemoveCsvFromFileRequest, error) {
+	m := new(RemoveCsvFromFileRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
 	return m, nil
 }
 
-func _StoreService_GetAll_Handler(srv interface{}, stream grpc.ServerStream) error {
-	m := new(GetAllRequest)
+func _StoreService_GetAllCsv_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetAllCsvRequest)
 	if err := stream.RecvMsg(m); err != nil {
 		return err
 	}
-	return srv.(StoreServiceServer).GetAll(m, &storeServiceGetAllServer{stream})
+	return srv.(StoreServiceServer).GetAllCsv(m, &storeServiceGetAllCsvServer{stream})
 }
 
-type StoreService_GetAllServer interface {
-	Send(*GetAllResponse) error
+type StoreService_GetAllCsvServer interface {
+	Send(*GetAllCsvResponse) error
 	grpc.ServerStream
 }
 
-type storeServiceGetAllServer struct {
+type storeServiceGetAllCsvServer struct {
 	grpc.ServerStream
 }
 
-func (x *storeServiceGetAllServer) Send(m *GetAllResponse) error {
+func (x *storeServiceGetAllCsvServer) Send(m *GetAllCsvResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
@@ -1132,42 +1715,262 @@ var _StoreService_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*StoreServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Store",
-			Handler:    _StoreService_Store_Handler,
+			MethodName: "AddCsv",
+			Handler:    _StoreService_AddCsv_Handler,
 		},
 		{
-			MethodName: "Remove",
-			Handler:    _StoreService_Remove_Handler,
+			MethodName: "RemoveCsv",
+			Handler:    _StoreService_RemoveCsv_Handler,
 		},
 		{
-			MethodName: "GetV",
-			Handler:    _StoreService_GetV_Handler,
+			MethodName: "GetvCsv",
+			Handler:    _StoreService_GetvCsv_Handler,
 		},
 		{
-			MethodName: "GetK",
-			Handler:    _StoreService_GetK_Handler,
+			MethodName: "GetkCsv",
+			Handler:    _StoreService_GetkCsv_Handler,
 		},
 		{
-			MethodName: "RemoveAll",
-			Handler:    _StoreService_RemoveAll_Handler,
+			MethodName: "RemoveAllCsv",
+			Handler:    _StoreService_RemoveAllCsv_Handler,
+		},
+		{
+			MethodName: "UseCsv",
+			Handler:    _StoreService_UseCsv_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "StoreCsv",
-			Handler:       _StoreService_StoreCsv_Handler,
+			StreamName:    "AddCsvFromFile",
+			Handler:       _StoreService_AddCsvFromFile_Handler,
 			ClientStreams: true,
 		},
 		{
-			StreamName:    "RemoveCsv",
-			Handler:       _StoreService_RemoveCsv_Handler,
+			StreamName:    "RemoveCsvFromFile",
+			Handler:       _StoreService_RemoveCsvFromFile_Handler,
 			ClientStreams: true,
 		},
 		{
-			StreamName:    "GetAll",
-			Handler:       _StoreService_GetAll_Handler,
+			StreamName:    "GetAllCsv",
+			Handler:       _StoreService_GetAllCsv_Handler,
 			ServerStreams: true,
 		},
 	},
+	Metadata: "storepb/store.proto",
+}
+
+// StoreDbServiceClient is the client API for StoreDbService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type StoreDbServiceClient interface {
+	AddDb(ctx context.Context, in *AddDbRequest, opts ...grpc.CallOption) (*AddDbResponse, error)
+	GetvDb(ctx context.Context, in *GetvDbRequest, opts ...grpc.CallOption) (*GetvDbResponse, error)
+	GetkDb(ctx context.Context, in *GetkDbRequest, opts ...grpc.CallOption) (*GetkDbResponse, error)
+	RemoveDb(ctx context.Context, in *RemoveDbRequest, opts ...grpc.CallOption) (*RemoveDbResponse, error)
+	UseDb(ctx context.Context, in *UseDbRequest, opts ...grpc.CallOption) (*UseDbResponse, error)
+}
+
+type storeDbServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewStoreDbServiceClient(cc *grpc.ClientConn) StoreDbServiceClient {
+	return &storeDbServiceClient{cc}
+}
+
+func (c *storeDbServiceClient) AddDb(ctx context.Context, in *AddDbRequest, opts ...grpc.CallOption) (*AddDbResponse, error) {
+	out := new(AddDbResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreDbService/AddDb", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeDbServiceClient) GetvDb(ctx context.Context, in *GetvDbRequest, opts ...grpc.CallOption) (*GetvDbResponse, error) {
+	out := new(GetvDbResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreDbService/GetvDb", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeDbServiceClient) GetkDb(ctx context.Context, in *GetkDbRequest, opts ...grpc.CallOption) (*GetkDbResponse, error) {
+	out := new(GetkDbResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreDbService/GetkDb", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeDbServiceClient) RemoveDb(ctx context.Context, in *RemoveDbRequest, opts ...grpc.CallOption) (*RemoveDbResponse, error) {
+	out := new(RemoveDbResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreDbService/RemoveDb", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *storeDbServiceClient) UseDb(ctx context.Context, in *UseDbRequest, opts ...grpc.CallOption) (*UseDbResponse, error) {
+	out := new(UseDbResponse)
+	err := c.cc.Invoke(ctx, "/store.StoreDbService/UseDb", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// StoreDbServiceServer is the server API for StoreDbService service.
+type StoreDbServiceServer interface {
+	AddDb(context.Context, *AddDbRequest) (*AddDbResponse, error)
+	GetvDb(context.Context, *GetvDbRequest) (*GetvDbResponse, error)
+	GetkDb(context.Context, *GetkDbRequest) (*GetkDbResponse, error)
+	RemoveDb(context.Context, *RemoveDbRequest) (*RemoveDbResponse, error)
+	UseDb(context.Context, *UseDbRequest) (*UseDbResponse, error)
+}
+
+// UnimplementedStoreDbServiceServer can be embedded to have forward compatible implementations.
+type UnimplementedStoreDbServiceServer struct {
+}
+
+func (*UnimplementedStoreDbServiceServer) AddDb(ctx context.Context, req *AddDbRequest) (*AddDbResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddDb not implemented")
+}
+func (*UnimplementedStoreDbServiceServer) GetvDb(ctx context.Context, req *GetvDbRequest) (*GetvDbResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetvDb not implemented")
+}
+func (*UnimplementedStoreDbServiceServer) GetkDb(ctx context.Context, req *GetkDbRequest) (*GetkDbResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetkDb not implemented")
+}
+func (*UnimplementedStoreDbServiceServer) RemoveDb(ctx context.Context, req *RemoveDbRequest) (*RemoveDbResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveDb not implemented")
+}
+func (*UnimplementedStoreDbServiceServer) UseDb(ctx context.Context, req *UseDbRequest) (*UseDbResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UseDb not implemented")
+}
+
+func RegisterStoreDbServiceServer(s *grpc.Server, srv StoreDbServiceServer) {
+	s.RegisterService(&_StoreDbService_serviceDesc, srv)
+}
+
+func _StoreDbService_AddDb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDbRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreDbServiceServer).AddDb(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/store.StoreDbService/AddDb",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreDbServiceServer).AddDb(ctx, req.(*AddDbRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreDbService_GetvDb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetvDbRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreDbServiceServer).GetvDb(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/store.StoreDbService/GetvDb",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreDbServiceServer).GetvDb(ctx, req.(*GetvDbRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreDbService_GetkDb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetkDbRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreDbServiceServer).GetkDb(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/store.StoreDbService/GetkDb",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreDbServiceServer).GetkDb(ctx, req.(*GetkDbRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreDbService_RemoveDb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveDbRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreDbServiceServer).RemoveDb(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/store.StoreDbService/RemoveDb",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreDbServiceServer).RemoveDb(ctx, req.(*RemoveDbRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StoreDbService_UseDb_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UseDbRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StoreDbServiceServer).UseDb(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/store.StoreDbService/UseDb",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StoreDbServiceServer).UseDb(ctx, req.(*UseDbRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _StoreDbService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "store.StoreDbService",
+	HandlerType: (*StoreDbServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "AddDb",
+			Handler:    _StoreDbService_AddDb_Handler,
+		},
+		{
+			MethodName: "GetvDb",
+			Handler:    _StoreDbService_GetvDb_Handler,
+		},
+		{
+			MethodName: "GetkDb",
+			Handler:    _StoreDbService_GetkDb_Handler,
+		},
+		{
+			MethodName: "RemoveDb",
+			Handler:    _StoreDbService_RemoveDb_Handler,
+		},
+		{
+			MethodName: "UseDb",
+			Handler:    _StoreDbService_UseDb_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
 	Metadata: "storepb/store.proto",
 }

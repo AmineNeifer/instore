@@ -13,6 +13,10 @@ import (
 const (
 	bCsv = "[csv] "
 )
+
+// StoreType could be either database or csvfile, defalut="csvfile"
+var StoreType string
+
 // fromMultiToSlice is a function that gets a multimap
 // and converts it to a 2D slice of strings
 func fromMultiToSlice(m multimap.MultiMap) [][]string {
